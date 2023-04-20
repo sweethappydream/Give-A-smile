@@ -102,7 +102,7 @@ $selectCelebrations = $fields['select_celebration'];
                                 $m = 1;
                                 if (is_array($selectCelebration['massage']) && $selectCelebration['massage']) :
                                     foreach ($selectCelebration['massage'] as $subkey => $massage) : ?>
-                                        <textarea onkeyup="allowMultipleLanguages(this)" data-x="<?= $svgStyles['message']['xposition']; ?>"
+                                        <textarea data-x="<?= $svgStyles['message']['xposition']; ?>"
                                                   data-y="<?= $svgStyles['message']['yposition']; ?>" 
                                                   data-color="<?= $svgStyles['message']['color']; ?>"
                                                   data-font-size="<?= $svgStyles['message']['font_size']; ?>"
@@ -187,6 +187,7 @@ $selectCelebrations = $fields['select_celebration'];
                     </i>
                 </a>
                 <div class="template">
+                <div class="text-from-input"></div>
                     <div class="svg">
 
                     </div>
