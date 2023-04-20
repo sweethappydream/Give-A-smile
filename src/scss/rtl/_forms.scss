@@ -1,0 +1,26 @@
+input, select, textarea {
+  &[type="checkbox"] {
+    & + label {
+      .checker {
+        margin: 0 0 0 8px;
+      }
+    }
+  }
+}
+
+  .input-before {
+  .input-text {
+    padding: 18px 70px 18px 18px;
+  }
+
+  &:before {
+    left: auto;
+    right: 12px;
+  }
+}
+
+.wpcf7 input[type="url"], 
+.wpcf7 input[type="email"], 
+.wpcf7 input[type="tel"] {
+  direction: rtl;
+} 

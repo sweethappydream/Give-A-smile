@@ -1,0 +1,33 @@
+.c-datapicker {
+	&__icon {
+		right: auto;
+		left: 13px;
+	}
+
+	.qs-controls {
+		flex-direction: row-reverse;
+	}
+
+	.qs-day,
+	.qs-num {
+    margin-right: 0;
+    margin-left: 15px;
+
+		&:nth-of-type(7n) {
+			margin-left: 0;
+		}
+	}
+
+	@media (max-width: 440px) {
+
+		.qs-num {
+			margin-right: 0;
+	    margin-left: 10px;
+		}
+
+		.qs-day {
+	    margin-right: 0;
+    	margin-left: 10px;
+		}
+	}
+}

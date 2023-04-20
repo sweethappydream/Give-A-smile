@@ -1,0 +1,8 @@
+//.iti__flag {background-image: url("path/to/flags.png");}
+.iti__country-list{
+  >li.iti__country{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

@@ -1,0 +1,78 @@
+.c-tab {
+  &__nav {
+    overflow: auto;
+    display: flex;
+    margin: 15px 0;
+  }
+
+  &__item {
+    background: #FFFFFF;
+    padding: 10px 18px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    color: #0E1856;
+    font-size: 24px;
+    line-height: 1;
+    font-family: 'Rubik';
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 5px;
+
+    &:not(.is-active) {
+      &:hover {
+        background-color: rgba(14, 24, 86, 0.2);
+      }
+    }
+
+    &.is-active {
+      color: white;
+      background: #0E1856;
+    }
+
+    .u-radio {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__container {
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+
+    &.is-active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__item {
+      width: 100%;
+      white-space: nowrap;
+      text-align: center;
+      font-size: 16px!important;
+    }
+  }
+}

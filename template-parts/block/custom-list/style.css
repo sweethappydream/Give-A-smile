@@ -1,0 +1,1 @@
+.custom-list__item{counter-increment:my-awesome-counter}.custom-list__title{font-size:calc(18px + 1vw);font-weight:600;margin-bottom:10px}.custom-list__title::before{content:counter(my-awesome-counter) ". "}.custom-list__content{padding-left:3.5vw}@media screen and (max-width:768px){.custom-list__content{padding-left:20px}}

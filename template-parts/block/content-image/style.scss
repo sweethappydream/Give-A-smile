@@ -1,0 +1,60 @@
+@import '../../../src/scss/globals/variables';
+
+.content-image {
+  position: relative;
+  z-index: 0;
+  padding-top: calc(140px + 3.3vw);
+  padding-bottom: calc(60px + 4.8vw);
+
+  &__content {
+    width: 60%;
+
+    @media screen and (max-width: $md) {
+      width: 100%;
+    }
+
+    p:last-child {
+      @media screen and (max-width: $md) {
+        margin-bottom: 0;
+      }
+    }
+
+    strong {
+      color: $c-primary;
+    }
+  }
+
+  &__image {
+    width: 40%;
+
+    @media screen and (max-width: $md) {
+      position: absolute;
+      right: 0;
+      top: 35px;
+    }
+
+    img {
+      width: calc(65px + 20vw);
+      max-width: 100%;
+      padding-top: 2vw;
+      padding-left: 3vw;
+
+      @media screen and (max-width: $md) {
+        padding: 0;
+        max-width: 178px;
+      }
+    }
+  }
+
+  .block-title {
+    max-width: calc(100% - 24vw);
+  }
+}
+
+.rtl {
+  .content-image__image img {
+    padding-right: 3vw;
+    padding-left: 0;
+    transform: scaleX(-1);
+  }
+}

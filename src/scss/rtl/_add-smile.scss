@@ -1,0 +1,21 @@
+.c-add-smile {
+	margin: 0 auto 60px;
+
+	&__img {
+		right: auto;
+		left: -120px;
+	}
+
+	&__plus {
+		span {
+			margin-right: 0;
+			margin-left: 15px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		&__img {
+			left: auto;
+		}
+	}
+}

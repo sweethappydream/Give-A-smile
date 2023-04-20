@@ -1,0 +1,338 @@
+body {
+  font: normal 400 22px $f-main;
+  line-height: lh();
+  color: $c-text;
+  -webkit-font-smoothing: antialiased;
+
+  @media screen and (max-width: $sm) {
+    font-size: 16px;
+  }
+}
+.is-overflow-hidden {
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0 0 20px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 72px;
+  line-height: lh(85, 72);
+
+  @media screen and (max-width: $lg) {
+    font-size: 45px;
+  }
+
+  @media screen and (max-width: $sm) {
+    font-size: 30px;
+  }
+}
+
+h1, .h1 {
+  font-weight: 700;
+}
+
+h2, .h2 {
+  font-weight: 600;
+}
+
+h3, .h3 {
+  font-size: 68px;
+
+  @media screen and (max-width: $sm) {
+    font-size: 28px;
+  }
+}
+
+h4, .h4 {
+  font-size: 50px;
+
+  @media screen and (max-width: $sm) {
+    font-size: 21px;
+  }
+}
+
+h5, .h5 {
+  font-size: 48px;
+
+  @media screen and (max-width: $sm) {
+    font-size: 20px;
+  }
+}
+
+h6, .h6 {
+  font-size: 40px;
+
+  @media screen and (max-width: $sm) {
+    font-size: 17px;
+  }
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0 0 35px;
+  padding: 0;
+}
+
+a {
+  color: $c-primary;
+  transition: color $main-transition;
+  text-decoration: none;
+
+  &:hover {
+    color: $c-secondary;
+  }
+}
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+iframe, img, input, video, select, textarea {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.container {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 -80px -80px;
+
+  @media screen and (max-width: $xl) {
+    margin: 0 0 -40px -40px;
+  }
+}
+
+.col {
+  width: 100%;
+  margin: 0 0 80px 80px;
+
+  @media screen and (max-width: $xl) {
+    margin: 0 0 40px 40px;
+  }
+
+  &-3 {
+    width: calc(100% / 3 - 80px);
+
+    @media screen and (max-width: $xl) {
+      width: calc(100% / 3 - 40px);
+    }
+
+    @media screen and (max-width: $lg) {
+      width: calc(50% - 40px);
+    }
+
+    @media screen and (max-width: $sm) {
+      width: 100%;
+    }
+  }
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  padding: 20px;
+  background-color: $c-primary;
+  border-radius: 70px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  color: $c-white;
+  transition: background-color $main-transition, color $main-transition;
+  text-decoration: none;
+
+  @media screen and (max-width: $sm) {
+    max-width: 232px;
+    padding: 13px;
+    font-size: 20px;
+  }
+
+  &:hover {
+    background-color: $c-primary-hover;
+    color: $c-white;
+  }
+
+  &--transparent {
+    background-color: transparent;
+    padding: 17px 20px;
+    border: 3px solid $c-primary;
+    color: $c-text;
+
+    &:hover {
+      background-color: $c-primary;
+      color: $c-white;
+    }
+  }
+
+  &--small {
+    width: fit-content;
+    border-radius: 67px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: lh(24, 20);
+
+    &.btn--transparent {
+      padding: 17px 35px;
+    }
+  }
+
+  &--thin {
+    padding: 10px;
+  }
+}
+
+.tab-btn {
+  @extend .btn;
+  max-width: 222px;
+  padding: 26px;
+  background-color: transparent;
+  box-shadow: 0px 2px 4px $c-shadow;
+  border-radius: 12px;
+  font-weight: 400;
+  line-height: lh(24, 20);
+  color: $c-text;
+
+  &:hover {
+    background-color: $tab-btn-hover;
+    color: $c-text;
+  }
+
+  &--active {
+    background-color: $c-text;
+    color: $c-white;
+    cursor: default;
+
+    &:hover {
+      background-color: $c-text;
+      color: $c-white;
+    }
+  }
+
+  &--thin {
+    max-width: 205px;
+    padding: 6px;
+  }
+
+  &--small {
+    width: fit-content;
+    min-width: 140px;
+    max-width: none;
+    padding: 6px 10px;
+  }
+
+  &--popup {
+    max-width: 208px;
+    box-shadow: 0px 4px 4px $c-shadow;
+    padding: 16px;
+    line-height: lh(28, 24);
+  }
+}
+
+.lg-hide {
+  @media screen and (max-width: $lg) {
+    display: none !important;
+  }
+}
+
+.lg-show {
+  display: none;
+
+  @media screen and (max-width: $lg) {
+    display: block;
+  }
+}
+
+.sm-show {
+  display: none;
+
+  @media screen and (max-width: $sm) {
+    display: block;
+  }
+}
+
+.bg-gray {
+  background: $c-background;
+}
+
+.only-d {
+  @media screen and (max-width: $md) {
+    display: none;
+  }
+}
+
+.only-m {
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
+
+.block-title {
+  font-size: calc(25px + 1.2vw);
+  font-weight: 800;
+
+  span {
+    color: $c-primary;
+  }
+}
+
+button:disabled,
+button[disabled]{
+  cursor: not-allowed;
+  background-color: $c-placeholder !important;
+}
+
+.not-found {
+  margin-left: 80px;
+
+  @media screen and (max-width: $md) {
+    margin-left: 10px;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+
+  .flex-col {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.page-title {
+  background: $c-background;
+  padding-top: calc(20px + 1.3vw);
+  padding-bottom: calc(20px + 1.3vw);
+
+  h1 {
+    text-align: center;
+    font-size: calc(24px + 1.2vw);
+    margin-bottom: 0;
+  }
+}
+
+.page-content {
+  padding-top: calc(20px + 0.6vw);
+  padding-bottom: calc(20px + 0.6vw);
+
+  ol {
+    padding-left: 20px;
+  }
+}

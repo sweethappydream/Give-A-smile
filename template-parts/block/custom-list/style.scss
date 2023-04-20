@@ -1,0 +1,25 @@
+@import '../../../src/scss/globals/variables';
+
+.custom-list {
+  &__item {
+    counter-increment: my-awesome-counter;
+  }
+
+  &__title {
+    font-size: calc(18px + 1vw);
+    font-weight: 600;
+    margin-bottom: 10px;
+
+    &::before {
+      content: counter(my-awesome-counter) ". ";
+    }
+  }
+
+  &__content {
+    padding-left: 3.5vw;
+
+    @media screen and (max-width: $md) {
+      padding-left: 20px;
+    }
+  }
+}

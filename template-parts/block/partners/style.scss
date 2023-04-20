@@ -1,0 +1,94 @@
+@import '../../../src/scss/globals/variables';
+
+.our-partners {
+  margin-bottom: 70px;
+  padding: 80px 0 112px;
+  background-color: $c-background;
+
+  @media screen and (max-width: $sm) {
+    padding: 20px 0 25px;
+  }
+
+  &__header {
+    margin-bottom: 89px;
+
+    @media screen and (max-width: $sm) {
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+  }
+
+  &__partners {
+    margin: 0 -27px;
+
+    @media screen and (max-width: 1600px) {
+      margin: 0 50px;
+    }
+
+    @media screen and (max-width: $md) {
+      margin: 0;
+    }
+
+    @media screen and (max-width: $sm) {
+      margin: 0 -10px;
+    }
+  }
+
+  &__partner {
+    position: relative;
+
+    &:hover {
+      .our-partners__img {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+  }
+
+  &__img {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 142px;
+    margin-bottom: 10px;
+    background-color: $c-white;
+    border: 2px solid $c-primary;
+    border-radius: 12px;
+
+    @media screen and (max-width: $sm) {
+      height: 96px;
+    }
+
+    @media screen and (max-width: 425px) {
+      height: 78px;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      transition: transform $main-transition;
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.17;
+    text-align: center;
+
+    @media screen and (max-width: $sm) {
+      font-size: 14px;
+    }
+  }
+}

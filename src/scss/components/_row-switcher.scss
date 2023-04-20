@@ -1,0 +1,39 @@
+.l-row-switcher {
+	display: none;
+
+	@media (max-width: 768px) {
+		display: block;
+	}
+}
+.c-row-switcher {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 40px 0;
+
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+
+	&__item {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 11px 20px;
+		cursor: pointer;
+
+		svg {
+			fill: #0E1856;
+		}
+
+		&.is-active {
+			background: #0E1856;
+			border-radius: 10px;
+
+			svg {
+				fill: white;
+			}
+		}
+	}
+}

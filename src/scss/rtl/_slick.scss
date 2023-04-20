@@ -1,0 +1,24 @@
+// .slick-arrow {
+//   left: auto;
+//   right: 60px;
+//   transform: translateY(-50%) rotate(180deg);
+
+//   @media screen and (max-width: $lg) {
+//     left: auto;
+//     right: 33px;
+//   }
+// }
+
+// .slick-next {
+//   left: 60px;
+//   right: auto;
+
+//   @media screen and (max-width: $lg) {
+//     left: 33px;
+//     right: auto;
+//   }
+// }
+
+.our-partners .slick-prev {
+  right: auto;
+}

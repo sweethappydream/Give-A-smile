@@ -1,0 +1,17 @@
+.p-archive {
+	.c-section-title {
+		background: #F5F5F5;
+		padding-top: 70px;
+		padding-bottom: 50px;
+		text-align: center;
+		font-weight: 600;
+		font-size: 72px;
+		line-height: 1.1;
+	}
+
+	@media (max-width: 576px) {
+		.c-section-title {
+			display: none;
+		}
+	}
+}

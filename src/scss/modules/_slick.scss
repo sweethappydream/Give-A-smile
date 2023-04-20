@@ -1,0 +1,63 @@
+@import "~slick-carousel/slick/slick";
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  font-size: 40px;
+  line-height: 1;
+  z-index: 1;
+
+  @media screen and (max-width: 1600px) {
+    display: none !important;
+  }
+
+  @media screen and (max-width: $lg) {
+    display: block !important;
+    top: 42vw;
+    left: 33px;
+  }
+}
+
+.slick-next {
+  left: auto;
+  right: 60px;
+
+  @media screen and (max-width: $lg) {
+    right: 33px;
+  }
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  margin: 0 -8px;
+
+  @media screen and (max-width: $lg) {
+    top: 73vw;
+    bottom: auto;
+  }
+
+  @media screen and (max-width: $sm) {
+    top: 70vw;
+  }
+
+  li {
+    width: 16px;
+    height: 16px;
+    margin: 0 8px;
+    background-color: $c-white;
+    border-radius: 100%;
+    font-size: 0;
+    cursor: pointer;
+    transition: background-color $main-transition;
+
+    &.slick-active {
+      background-color: $c-text;
+    }
+  }
+}

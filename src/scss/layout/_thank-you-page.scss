@@ -1,0 +1,119 @@
+.thank-you-section {
+  height: calc(100vh - 102px);
+  padding-top: 51px;
+  padding-bottom: 70px;
+  max-height: 829px;
+  position: relative;
+  overflow: hidden;
+
+  .wrapper {
+    max-width: 1658px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    position: absolute;
+    top: 51px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url("../../assets/img/bg-thanks.png");
+    background-position: top center;
+    background-size: contain;
+    z-index: 0;
+
+    @include breakpoint(ls, max) {
+      display: none;
+    }
+  }
+
+  .container {
+    max-width: 543px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+
+    .title {
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 47px;
+      text-align: center;
+      margin: 0;
+      color: #0E1856;
+      display: flex;
+      align-items: center;
+
+      .rtl & {
+        flex-direction: row-reverse;
+      }
+
+      @include breakpoint(lm, max) {
+        font-size: 24px;
+
+        span.check > svg {
+          height: 48px;
+          width: 48px;
+        }
+      }
+    }
+
+    .image {
+      height: 264px;
+      width: 100%;
+      margin-left: -50%;
+
+      svg, img {
+        width: 100%;
+      }
+
+      @include breakpoint(lm, max) {
+        margin: 0;
+      }
+    }
+
+    .u-btn {
+      max-width: 340px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 16px 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.3;
+      transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+      @include breakpoint(lm, max) {
+        font-size: 20px;
+        max-width: 232px;
+        padding: 13px 20px;
+      }
+
+      &:hover {
+        background-color: #ba0652;
+        color: #fff;
+        transition: background-color 0.3s ease-out, color 0.3s ease-out;
+      }
+    }
+  }
+
+  .share-thank-page {
+    display: flex;
+    background: #3b5998;
+    color: #fff;
+    padding: 10px 33px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 20px;
+      margin-right: 13px;
+    }
+  }
+}

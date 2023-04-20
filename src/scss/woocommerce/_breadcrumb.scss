@@ -1,0 +1,44 @@
+.breadcrumb {
+  background: $c-background;
+}
+
+.woocommerce-breadcrumb {
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 22px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
+
+  a {
+    color: $c-text;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      transition: opacity 0.3s ease;
+      opacity: 0.6;
+    }
+  }
+}
+
+.delimiter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 16px;
+    background-image: url('../../assets/img/delimiter.svg');
+    background-size: contain;
+  }
+}

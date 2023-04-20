@@ -1,0 +1,140 @@
+select.custom {
+  display: none;
+}
+
+.dropdown {
+  background-color: #fff;
+  border: 1px solid #0E1856;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  min-height: 60px;
+  outline: none;
+  padding: 18px 60px 18px 12px;
+  position: relative;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: 12px;
+
+  // Arrow
+  &::after {
+    content: '';
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: all 0.125s ease-in-out;
+    background-image: url("../../assets/img/arrow-bottom-select.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transform-origin: center;
+  }
+
+  &.open {
+    &::after {
+      transform: rotate(-180deg);
+    }
+
+    .list {
+      transition: opacity 0.3s ease-in-out;
+      opacity: 1;
+      pointer-events: auto;
+      width: 100%;
+    }
+
+    .option {
+      cursor: pointer;
+    }
+  }
+
+  .list {
+    border-radius: 12px;
+    box-sizing: border-box;
+    transform-origin: 50% 0;
+    background-color: #fff;
+    padding: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #aaa;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    position: absolute;
+    top: 105%;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #0E1856;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ba0652;
+      outline: 0;
+    }
+
+    > ul {
+      list-style: none;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      li {
+        padding: 0;
+        display: initial;
+      }
+    }
+
+    &:hover .option:not(:hover) {
+      background-color: transparent !important;
+    }
+  }
+
+  .option {
+    cursor: default;
+    outline: none;
+    padding-left: 18px;
+    padding-right: 29px;
+    text-align: left;
+    transition: all 0.2s;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #333;
+    line-height: 24px;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    &:hover,
+    &:focus {
+      color: gray;
+    }
+
+    &.selected {
+      position: relative;
+      color: #ba0652;
+    }
+  }
+}

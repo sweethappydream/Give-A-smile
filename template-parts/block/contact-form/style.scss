@@ -1,0 +1,78 @@
+@import '../../../src/scss/globals/variables';
+
+.contact-form {
+  padding-bottom: calc(35px + 1vw);
+
+  .container {
+    position: relative;
+    padding-top: calc(35px + 1.6vw);
+    padding-bottom: calc(35px + 1vw);
+    background: $c-background;
+    border-radius: 12px;
+
+    @media screen and (max-width: $md) {
+      padding-bottom: 20px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 1vw;
+      left: 1vw;
+      width: 14vw;
+      height: 12vw;
+      background-image: url("../../../assets/img/smile-y.svg");
+      background-size: contain;
+
+      @media screen and (max-width: $md) {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 3vw;
+      width: 10vw;
+      height: 10vw;
+      background-image: url("../../../assets/img/smile-g.svg");
+      background-size: contain;
+
+      @media screen and (max-width: $md) {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-size: calc(24px + 1.2vw);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  &__subtitle {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  form {
+    position: relative;
+    z-index: 1;
+    width: 568px;
+    max-width: 100%;
+    margin: auto;
+
+    .wpcf7-form-control-wrap .wpcf7-form-control {
+      background: #fff;
+    }
+
+    .wpcf7-submit {
+      margin-top: calc(10px + 3vw);
+    }
+  }
+}

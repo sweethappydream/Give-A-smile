@@ -1,0 +1,66 @@
+.l-check-giftcard {
+	&__box {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__text {
+		text-align: left;
+		margin-bottom: 75px;
+	}
+
+	&__form {
+		input {
+			max-width: 560px;
+			text-align: center;
+			padding: 27px;
+			margin: 0 auto;
+			border: 1px solid #0e1856;
+			color: #0e1856;
+
+			&::placeholder {
+			  color: #767676;
+			}
+		}
+	}
+
+	.u-btn {
+		&.is-pink {
+			margin-top: 50px;
+		}
+		&.is-white {
+			margin-top: 25px;
+			margin-bottom: 70px;
+		}
+	}
+
+	.c-price {
+		font-size: 56px;
+		line-height: 1.1;
+	}
+	@media (max-width: 576px) {
+		&__text {
+			margin-bottom: 40px;
+			text-align: center;
+		}
+
+		&__form {
+			input {
+				padding: 20px;
+			}
+		}
+
+		.u-btn {
+			&.is-pink {
+				margin-top: 40px;
+			}
+			&.is-white {
+				margin-bottom: 40px;
+			}
+		}
+
+		.c-price {
+			font-size: 40px;
+		}
+	}
+}

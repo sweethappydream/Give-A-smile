@@ -1,0 +1,27 @@
+.login-popup {
+  &__img {
+    margin: 0 18px 0 0;
+  }
+}
+
+.login-menu {
+  &__title {
+    flex-direction: row-reverse;
+  }
+
+  .fa {
+    margin: 0 0 0 19px;
+  }
+}
+
+.project-popup {
+  &__sm {
+    &-text {
+      text-align: left;
+    }
+  }
+}
+
+.login-menu ul {
+  text-align: right;
+}

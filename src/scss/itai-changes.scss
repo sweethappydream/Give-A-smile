@@ -1,0 +1,9 @@
+.send-buttons {
+  font-weight: 600;
+}
+
+.iti.iti--allow-dropdown {
+  @media screen and (max-width: $md) {
+    width: 100%;
+  }
+}

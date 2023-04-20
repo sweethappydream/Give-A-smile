@@ -1,0 +1,212 @@
+.checkout {
+
+}
+.c-datapicker {
+  width: calc(50% - 8px);
+  margin-left: 8px;
+
+  @include breakpoint(xsm, max) {
+    width: 100%;
+    max-width: 391px;
+    margin-left: 0;
+  }
+
+  * {
+    font-family: $f-main;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 13px;
+    top: 12px;
+  }
+
+  .datapicker {
+    width: 100%;
+    height: 60px !important;
+    margin-bottom: 0 !important;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0E1856;
+
+    &::placeholder {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 24px;
+      color: #0E1856;
+      opacity: 1;
+    }
+
+    &::-webkit-input-placeholder {
+      opacity: 1;
+    }
+
+    &::-moz-placeholder {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .qs-datepicker-container {
+    top: 50px !important;
+    border: 1px solid #0E1856;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+  }
+
+  .qs-datepicker {
+    padding: 13px 10px 7px 10px;
+
+    .qs-controls {
+      background-color: white;
+      padding: 10px 0;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        left: 0;
+        bottom: -60px;
+        background-color: rgba(0, 0, 0, 0.08);
+        @media (max-width: 480px) {
+          bottom: -50px;
+        }
+      }
+    }
+  }
+
+  .qs-squares {
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  .qs-year {
+    display: none;
+  }
+
+  .qs-month-year {
+    color: #0E1856;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .qs-day {
+    color: #0E1856;
+    font-weight: 400;
+    font-size: 20px;
+    height: 40px;
+    margin: 10px 0;
+
+    &:nth-of-type(7n) {
+      margin-right: 0;
+    }
+  }
+
+  .qs-num {
+    width: 14%;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #0E1856;
+
+    &.qs-active {
+      color: #fff;
+      background: transparent !important;
+
+      &::before {
+        background: #0E1856;
+      }
+    }
+
+    &:hover {
+      background: transparent !important;
+
+      &.qs-disabled {
+        &::before {
+          background: transparent !important;
+        }
+      }
+
+      &::before {
+        transition: all 0.3s ease;
+        background: linear-gradient(0deg, rgba(14, 24, 86, 0.2), rgba(14, 24, 86, 0.2)), #fff;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      border-radius: 50%;
+      width: 77.44%;
+      height: auto;
+      padding-top: 77.44%;
+      background: #fff;
+      box-shadow: 0 3.70732px 3.70732px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .qs-arrow {
+    height: 15px;
+    width: 16px;
+    border-radius: 0;
+
+    &.qs-left,
+    &.qs-right {
+      &:after {
+        border: none;
+        width: 100%;
+        height: 100%;
+        background-image: url(http://smile.local/wp-content/themes/lg_smile/assets/icon/arrow-down.svg);
+        background-position: center center;
+        background-size: contain;
+      }
+    }
+
+    &.qs-left {
+      &:after {
+        transform-origin: right;
+        transform: rotate(90deg);
+      }
+    }
+
+    &.qs-right {
+      &:after {
+        transform-origin: left;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .qs-num {
+      font-size: 14px;
+      height: 35px;
+    }
+
+    .qs-day {
+      font-size: 18px;
+      height: 35px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.c-tab {
+	&__item {
+		margin-right: 0;
+		margin-left: 16px;
+
+		&:last-child {
+			margin-left: 0;
+		}
+	}
+}

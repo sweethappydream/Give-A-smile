@@ -1,0 +1,69 @@
+{
+    "key": "group_631842bec2788",
+    "title": "Magic gift",
+    "fields": [
+        {
+            "key": "field_631842f194881",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_632d60dc2e9db",
+            "label": "Button text",
+            "name": "button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "default_value": "Check Amount",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 25
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-pages\/template-magic-gift.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "TMPL",
+    "show_in_rest": 0,
+    "modified": 1679467280,
+    "local_file": "\/home\/869972.cloudwaysapps.com\/azsfmqwrjg\/public_html\/wp-content\/themes\/smile_deploy-2023\/acf-json\/group_631842bec2788.json",
+    "acfml_field_group_mode": "advanced"
+}

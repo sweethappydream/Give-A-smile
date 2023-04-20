@@ -1,0 +1,20 @@
+.c-social {
+	margin-left: 0;
+	margin-right: auto;
+	&__item {
+		flex-direction: row-reverse;
+	}
+
+	&__icon {
+		// margin-left: 10px;
+		// margin-right: 0;
+	}
+
+	&__title {
+
+	}
+
+	@media (max-width: 420px) {
+    margin: 30px auto 0;
+	}
+}

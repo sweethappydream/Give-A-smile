@@ -1,0 +1,9 @@
+/* .interface-interface-skeleton__content */
+@import 'global.css';
+@import '../../../template-parts/block/slider/style.css';
+@import '../../../template-parts/block/counter/style.css';
+@import '../../../template-parts/block/projects-filter/style.css';
+
+html :where(.wp-block) {
+    max-width: none;
+}

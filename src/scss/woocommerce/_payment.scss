@@ -1,0 +1,332 @@
+.l-checkout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 36px;
+
+  &__total {
+    max-width: 675px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 20px 20px 20px 35px;
+    position: relative;
+    &-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 500;
+      margin-bottom: 15px;
+      &__left {
+        max-width: 55%;
+        width: 100%;
+      }
+      &__right {
+        max-width: 45%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 60px;
+      }
+    }
+    &-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-weight: 300;
+
+      &__left {
+        max-width: 55%;
+        width: 100%;
+        margin-bottom: 15px;
+        font-size: 20px;
+
+        .js-add-tip,
+        .js-add-tip-finish {
+          color: #E80866;
+          // margin-left: 30px;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+
+        .js-add-tip {
+          &.d-none {
+            display: none;
+          }
+        }
+
+        .js-add-tip-finish {
+          display: none;
+          &.d-block {
+            display: inline-block;
+          }
+        }
+      }
+      &__right {
+        max-width: 45%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 60px;
+        margin-bottom: 15px;
+
+        // .c-price {
+        //   padding: 0;
+        //   border: 0;
+        // }
+
+        .c-price {
+          .error {
+            display: none;
+          }
+          .is-add-tip-input {
+            border: 0;
+            padding: 0;
+            outline: 0;
+            margin-bottom: 0;
+            width: 35px;
+            text-align: center;
+            color: #0E1856;
+            cursor: unset;
+            transition: all 0.3s ease;
+            display: inline-block;
+
+            &.is-active {
+              border: 1px solid #0E1856;
+              padding: 10px;
+              width: 60px;
+              border-radius: 12px;
+              cursor: auto;
+            }
+            
+            &:placeholder {
+              opacity: 1;
+              color: #0E1856;
+            }
+          }
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        // .is-add-tip-input
+      }
+    }
+    &-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid #C4C4C4;
+      font-weight: 500;
+    }
+
+    .is-quantity {
+      width: 100px;
+      text-align: center;
+    }
+    .c-price {
+      width: 100px;
+      text-align: center;
+
+      span {
+        display: inline-block;
+      }
+    }
+    span {
+        display: inline-block;
+      }
+  }
+
+  &__payment {
+    max-width: 590px;
+    width: 100%;
+
+    &-img {
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+      img {
+        max-height: 50px;
+        width: auto;
+      }
+    }
+
+    .u-h2 {
+      padding-bottom: 10px;
+      border-bottom: 4px solid #F5F5F5;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-family: 'Rubik';
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1;
+      color: #0E1856;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .wc_payment_method .woocommerce-error {
+      display: none;
+    }
+
+    span.error {
+      color: #FE2C25;
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 400;
+      padding: 0 10px;
+    }
+  }
+
+  fieldset.wc-credit-card-form {
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    .form-row {
+      margin-bottom: 15px;
+
+      input, select {
+        margin-bottom: 5px;
+        color: #0E1856!important;
+      }
+
+      &.is-date {
+        max-width: 45%;
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        vertical-align: top;
+      }
+
+      &.is-cvv {
+        // max-width: 54%;
+        max-width: calc(55% - 4px);
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+      }
+    }
+
+    // .og-expiration {
+    //   position: relative;
+    // }
+
+    .og-cc-month,
+    .og-cc-year {
+      max-width: 110px;
+      display: inline-block;
+    }
+    .og-cc-month {
+      margin-right: 10px;
+    }
+  }
+
+  label span {
+    display: inline-block;
+  }
+
+  @media (max-width: 1350px) {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    &__total {
+      margin-bottom: 50px;
+    }
+
+    &__payment {
+      max-width: 675px;
+
+      .u-h2 {
+        text-align: center;
+      }
+
+      .u-btn {
+        display: flex;
+        margin: 30px auto;
+      }
+    }
+
+    .c-info {
+      &__box {
+        right: auto;
+        left: 40px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__total {
+      padding: 15px;
+      &-body {
+        &__left {
+          max-width: 60%;
+        }
+        &__right {
+          padding-left: 10px;
+          max-width: 40%;
+
+          .is-quantity {
+            width: 30px;            
+          }
+        }
+      }
+      &-head {
+        &__left {
+          max-width: 60%;
+        }
+        &__right {
+          max-width: 40%;
+          padding-left: 30px;
+
+          .is-quantity {
+            // display: none;
+            opacity: 0;
+            font-size: 0;
+            width: 30px;
+          }
+        }
+      }
+
+      .c-info {
+        display: none;
+      }
+    }
+
+    fieldset.wc-credit-card-form {
+      .form-row.is-cvv {
+        max-width: 100%;
+      }
+      .form-row.is-date {
+        max-width: 100%;
+      }
+      .og-cc-month,
+      .og-cc-year {
+        max-width: calc(50% - 7px);
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    &__total {
+      &-head {
+        &__right {
+          .is-quantity {
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+}

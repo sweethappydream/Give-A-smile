@@ -1,0 +1,31 @@
+.site-header {
+  direction: ltr;
+}
+
+.site-main-menu {
+  direction: rtl;
+
+  @media screen and (max-width: $xl) {
+    justify-content: flex-start;
+  }
+
+  .gift-link {
+    a {
+      @media screen and (max-width: $xl) {
+        justify-content: flex-start;
+      }
+
+      &:before {
+        margin: 0 0 0 8px;
+      }
+    }
+  }
+}
+
+.site-login {
+  direction: rtl;
+
+  .fa {
+    margin: 0 0 0 18px;
+  }
+}

@@ -1,0 +1,38 @@
+.l-head-image {
+	background: #F5F5F5;
+	// padding: 20px 0;
+
+	&__img {
+		position: relative;
+		padding: 20px 0;
+
+		&-mobile {
+			display: none;
+		}
+	}
+
+	&__title {
+		position: absolute;
+		left: 18%;
+		top: 50%;
+		transform: translateY(-50%);
+		font-weight: 500;
+		font-size: 40px;
+		color: #0E1856;
+	}
+
+	@media (max-width: 576px) {
+		&__title {
+			font-size: 20px;
+			left: 20px;
+		}
+		&__img {
+			&-desctop {
+				display: none;
+			}
+			&-mobile {
+				display: block;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+@function lh($lh: 33, $fs: 22) {
+  @return $lh / $fs;
+}
+
+$media-direction: min;
+
+$breakpoints: (
+        xs: 32rem, // ~512px
+        xsm: 35.938rem, // ~575px
+        sm: 48rem, // ~768px
+        m: 62rem, // ~992px
+        md: 64rem, // ~1024px
+        lm: 67.5rem, // ~1080px
+        ls: 74rem, // ~1184px
+        lg: 80rem, // ~1280px
+        xl: 90rem  // ~1440px
+) !default;
+
+@mixin breakpoint($breakpoint, $direction: $media-direction, $logic: false) {
+  @if ( $logic ) {
+    @media #{$logic} and (#{$direction}-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  }
+
+  @else {
+    @media (#{$direction}-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  }
+}

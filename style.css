@@ -1,0 +1,188 @@
+/*
+Theme Name: Smile Theme 2023
+Author: Arctica
+Version: 4.1.4
+Text Domain: smile
+*/
+/*  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+*  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+*/@font-face {
+ font-family:FontAwesome;src:url(assets/fonts/fontawesome-webfont.eot);src:url(assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format("embedded-opentype"),url(assets/fonts/fontawesome-webfont.woff2) format("woff2"),url(assets/fonts/fontawesome-webfont.woff) format("woff"),url(assets/fonts/fontawesome-webfont.ttf) format("truetype"),url(assets/img/fontawesome-webfont.svg#fontawesomeregular) format("svg");font-weight:400;font-style:normal;
+}
+html,body{
+	overflow-x:hidden;
+	background:#fff;
+}
+/*hiding for now the .gifts__counter*/
+.gifts__counter{
+	display:none;
+}
+/*fixing site footer*/
+.site-footer__contact {
+  display: flex;
+  align-items: center;
+  width: calc(50% - 80px);
+  margin: 0 0 19px 39px;
+  color: #0E1856;
+}
+@media (prefers-reduced-motion) {
+  *,
+  ::before,
+  ::after {
+  animation-delay: inherit;
+  animation-duration: inherit;
+  animation-iteration-count: inherit;
+  background-attachment: inherit;
+  scroll-behavior: inherit;
+  transition-delay: inherit;
+  transition-duration: inherit;
+}
+}
+.rtl .dropdown::after {
+	left: 21px;
+	right:unset;
+}
+.rtl .filter-bar__icon {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+@media (max-width: 80rem){
+.rtl .steps-list__item .choosing-step .dropdown::after {
+    left: 10px;
+	right:unset;
+    top: 0;
+	}
+}
+/*partners-banner__logo img*/
+.partners-banner__logo img {
+    max-height: 200px;
+    object-fit: contain;
+}
+@media(max-width:1025px){
+	.partners-banner__logo img{
+		height:80px;
+	}
+}
+/*adding fixing for gift_image*/
+@media screen and (max-width:768px) {
+ .gifts__image img {
+  height:160px;
+ }
+.product-step1__accordion
+.accordion-item 
+.accordion-title p {
+  margin-bottom: 0;
+  max-width: 315px;
+}
+}
+#og-ccnum, #og-citizenid,
+#og-cvv {
+  text-align: left;
+  direction: ltr;
+}
+.rtl .timepicker-wrapper .placeholder .arrow{
+	left:0px;
+	right:unset;
+}
+/*change color of send wpc7*/
+.wpcf7 form.sent .wpcf7-response-output {
+  color: #0e1856;
+}
+/*an make the .multiline-text-message-svg bigger like in the image.*
+.multiline-text-message-svg{
+	font-size:7px !important;
+}
+*/
+@media screen and (max-width: 1024px){
+.slider-block__img img {
+   max-width: 44%;
+}
+	.site-footer .container.copyright p,.steps-list__item .send-step-form .description{
+		font-size:14px;
+	}
+}
+/*fixing privacy policy*/
+ .page-id-3 .page-content {
+  direction: rtl;
+}
+/*rtl issues*/
+.rtl #behalf-svg {
+  direction: rtl;
+}
+.rtl .timepicker-wrapper .placeholder .time{
+  direction: ltr;
+    margin-left:30px;
+}
+.rtl .content-background-block__content h2{
+direction: initial;
+}
+.lds-ripple h2{
+	font-size:1.8rem;
+	text-align:center;
+	padding-bottom:20px;
+}
+/*error color*/
+.tip-error.show {
+  color: #cf2e2e;
+  font-weight: 500;
+}
+
+ li.wc_payment_method.payment_method_officeguy label span.icon img {
+   display: none;
+}
+/* Text meant only for screen readers. */
+.screen-reader-text a{
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+/*currency flags*/
+a[rel="ILS"]:before {
+      background-image: url(/wp-content/themes/smile_deploy-2023/assets/img/il.svg);
+    display: inline-block;
+min-width: 24px;
+min-height: 18px;
+margin: 0 8px 0 0 !important;
+border-radius: 2px;
+      content: "";
+}
+a[rel="USD"]:before {
+      background-image: url(/wp-content/themes/smile_deploy-2023/assets/img/us.svg);
+    display: inline-block;
+min-width: 24px;
+min-height: 18px;
+margin: 0 8px 0 0 !important;
+border-radius: 2px;
+      content: "";
+}
+a[rel="EUR"]:before {
+      background-image: url(/wp-content/themes/smile_deploy-2023/assets/img/eu.svg);
+    display: inline-block;
+min-width: 24px;
+min-height: 18px;
+margin: 0 8px 0 0 !important;
+border-radius: 2px;
+      content: "";
+}
+ 
+a.remove {
+    text-indent: -9999px;
+    border: 0;
+}
+ 
+/* Add a Fontawesome icon instead */
+/* Learn More in the Following Paragraphs */
+ 
+a.remove:before {
+    font-family: FontAwesome;
+    content: "\f1f8";
+    float: left;
+    text-indent: 0;
+}

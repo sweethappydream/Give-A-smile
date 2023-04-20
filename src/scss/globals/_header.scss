@@ -1,0 +1,254 @@
+.site-header {
+  position: relative;
+  background-color: $c-white;
+  box-shadow: 0 4px 4px $c-shadow;
+  font-size: 20px;
+  line-height: lh(24, 20);
+  z-index: 3;
+
+  @media screen and (max-width: $xl) {
+    font-size: 16px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+
+    @media screen and (max-width: $sm) {
+      padding: 5px 0 5px;
+    }
+  }
+
+  &__col {
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.site-logo {
+  margin-right: 33px;
+
+  @media screen and (max-width: $sm) {
+    max-width: 140px;
+  }
+}
+
+.site-lang {
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    margin-right: 9px;
+  }
+
+  a {
+    line-height: inherit;
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.wpml-ls-statics-shortcode_actions {
+  padding: 0;
+
+
+  li {
+    &:not(:last-child) {
+      a {
+        border-right: 2px solid $c-text;
+      }
+    }
+  }
+
+  a {
+    padding: 0 8px;
+    color: $c-text;
+
+    &:hover {
+      color: $c-primary;
+    }
+  }
+}
+
+.wpml-ls-current-language {
+  font-weight: 800;
+
+  a {
+    &:hover {
+      color: $c-text;
+    }
+  }
+}
+
+.site-main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 5px;
+
+  @media screen and (max-width: 1340px) {
+    justify-content: flex-end;
+    
+    
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+
+    @media screen and (max-width: 1340px) {
+      padding: 0 10px;
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: $xl) {
+      margin-bottom: 12px;
+    }
+  }
+
+  a {
+    color: $c-text;
+
+    &:hover {
+      color: $c-primary;
+    }
+  }
+
+  .gift-link {
+    @media screen and (max-width: $xl) {
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-weight: 500;
+      color: $c-primary;
+
+      &:hover {
+        color: $c-text;
+      }
+
+      &:before {
+        content: url('../../assets/img/gift.svg');
+        width: 28px;
+        height: 28px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.site-login {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $xl) {
+    font-size: 16px;
+  }
+
+  .fa {
+    margin-right: 18px;
+    font-size: 28px;
+
+    @media screen and (max-width: $xl) {
+      font-size: 23px;
+    }
+  }
+}
+
+.site-burger {
+  width: 40px;
+  height: 40px;
+
+  svg {
+    path {
+      transition: transform $main-transition, opacity $main-transition;
+    }
+  }
+
+  &.active {
+    svg {
+      path {
+        opacity: 0;
+
+        &:first-child {
+          opacity: 1;
+          transform: translate(13px, -2px) rotate(45deg);
+        }
+
+        &:last-child {
+          opacity: 1;
+          transform: translate(-16px, 13px) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 0;
+  background-color: $c-white;
+  font-size: 20px;
+  line-height: lh(24, 20);
+  overflow: hidden;
+  transition: max-height $main-transition, overflow $main-transition;
+
+  &.show {
+    max-height: calc(100vh - 100px);
+  }
+
+  &.showed {
+    overflow-y: auto;
+  }
+
+  .container {
+    max-width: calc(50vw + 40px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @media screen and (max-width: $md) {
+      max-width: calc(75vw + 40px);
+    }
+
+    @media screen and (max-width: $sm) {
+      max-width: none;
+    }
+  }
+
+  .site-lang {
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
+  .site-main-menu {
+    flex-direction: column;
+    margin: 0 0 13px;
+
+    li {
+      justify-content: center;
+    }
+  }
+
+  .site-login {
+    margin: 0 auto;
+  }
+}

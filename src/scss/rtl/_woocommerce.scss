@@ -1,0 +1,23 @@
+.partners {
+  &-banner {
+    &__row {
+      &::before {
+        background-image: url('../../assets/img/banner-line-rtl.svg');
+        left: initial;
+        right: 0;
+      }
+    }
+  }
+}
+
+.woocommerce-Price-amount.amount bdi {
+  direction: rtl;
+}
+
+.woocommerce-breadcrumb {
+  .delimiter {
+    &:after {
+      transform: scaleX(-1);
+    }
+  }
+}

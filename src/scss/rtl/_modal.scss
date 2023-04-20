@@ -1,0 +1,14 @@
+.l-modal-container {
+	.c-mobile-menu {
+		&__head {
+			&-login {
+				.u-btn {
+					.fa {
+						margin-right: 0;
+						margin-left: 10px;
+					}
+				}
+			}
+		}
+	}
+}

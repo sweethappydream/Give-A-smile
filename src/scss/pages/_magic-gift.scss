@@ -1,0 +1,38 @@
+.page-template-template-magic-gift{
+	.l-check-giftcard__text{
+		text-align: center;
+	}
+}
+
+.p-magic-gift {
+	.l-head-image {
+		margin-bottom: 90px;
+	}
+	.l-check-giftcard {
+		margin-bottom: 90px;
+	}
+
+	@media (max-width: 768px) {
+		.l-head-image {
+			margin-bottom: 40px;
+		}
+		.-l-check-giftcard {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+.error-404 {
+	padding: 80px 0;
+	text-align: center;
+
+	.btn{
+		margin: 40px auto 0;
+	}
+	@media only screen and (max-width: $sm) {
+		padding: 50px 0;
+		.btn{
+			margin-top: 25px;
+		}
+	}
+}

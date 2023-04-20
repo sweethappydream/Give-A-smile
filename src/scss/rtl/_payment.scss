@@ -1,0 +1,93 @@
+.l-checkout  {
+
+	&__total {
+		padding: 20px 35px 20px 20px;
+
+		&-head {
+			&__right {
+				padding-left: 0;
+				padding-right: 60px;
+			}
+		}
+
+		&-body {
+			&.product-tip{
+				.l-checkout__total-body__right{
+					padding-right: 0;
+				}
+			}
+			&__right {
+				padding-left: 0;
+				padding-right: 60px;
+				//padding-right: 10px;
+			}
+
+			&__left {
+				.js-add-tip {
+					// margin-left: 0;
+					// margin-right: 30px;
+				}
+			}
+		}
+
+
+		.c-info {
+			left: auto;
+			right: -15px;
+
+			&__box {
+				right: auto;
+				left: 40px;
+				max-width: 260px;
+
+				&:after {
+					content: none;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1350px) {
+		.c-info {
+			&__box {
+		    left: auto;
+    		right: 40px;
+			}
+		}
+	}
+
+	@media (max-width: 576px) {
+		&__total {
+			padding: 15px;
+
+			&-head {
+				&__right {
+					padding-right: 30px;
+				}
+			}
+
+			&-body {
+				&__right {
+					padding-right: 10px;
+				}
+			}
+		}
+	}
+
+	fieldset.wc-credit-card-form .og-cc-month {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	@media (max-width: 400px) {
+		&__total {
+			&-head {
+				&__right {
+					.is-quantity {
+						width: 0;
+					}
+				}
+			}
+		}
+	}
+}

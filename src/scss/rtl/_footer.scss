@@ -1,0 +1,43 @@
+.site-footer {
+  &__menu {
+    padding-right: 10px;
+    padding-left: 0;
+
+    @media screen and (max-width: 375px) {
+      margin: 0 -43px 23px 0;
+      padding-right: 0;
+    }
+
+    li {
+      width: calc(50% - 80px);
+      margin: 0 0 20px 80px;
+
+      @media screen and (max-width: $lg) {
+        width: calc(50% - 43px);
+        margin: 0 0 23px 43px;
+      }
+
+      @media screen and (max-width: 375px) {
+        margin: 0 43px 23px 0;
+      }
+    }
+  }
+
+  &__contacts {
+    margin: 0 auto -19px 0;
+
+    @media screen and (max-width: 375px) {
+      margin-left: 0;
+      margin-right: -16px;
+    }
+  }
+
+  &__contact {
+    flex-direction: row-reverse;
+    margin: 0 39px 19px 0;
+
+    @media screen and (max-width: $md) {
+      margin: 0 16px 16px 0;
+    }
+  }
+}

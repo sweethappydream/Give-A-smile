@@ -1,0 +1,77 @@
+@import '../../../src/scss/globals/variables';
+
+.content-background-block {
+  position: relative;
+  margin-bottom: 50px;
+  padding: 50px 0 45px;
+  background-size: cover;
+  background-position: 50% 50%;
+
+  @media screen and (max-width: $sm) {
+    margin-bottom: 40px;
+  }
+  
+  &__mob-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  &__container {
+    max-width: 406px;
+    text-align: center;
+
+    @media screen and (max-width: $sm) {
+      max-width: 228px;
+    }
+  }
+
+  &__content {
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.18;
+
+    @media screen and (max-width: $sm) {
+      font-size: 18px;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 68px;
+
+      @media screen and (max-width: $lg) {
+        font-size: 45px;
+      }
+
+      @media screen and (max-width: $sm) {
+        margin-bottom: 8px;
+        font-size: 30px;
+      }
+    }
+
+    p {
+      margin-bottom: 18px;
+
+      @media screen and (max-width: $sm) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__btn {
+    margin: 0 auto;
+
+    @media screen and (max-width: $sm) {
+      max-width: 160px;
+    }
+  }
+
+  .container {
+    position: relative;
+    max-width: 1310px;
+  }
+}

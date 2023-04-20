@@ -1,0 +1,72 @@
+.c-add-smile {
+  position: relative;
+  margin-bottom: 60px;
+  max-width: 445px;
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  &__img {
+    position: absolute;
+    right: -120px;
+    top: -20px;
+  }
+
+  &__plus {
+    border: 2px solid #E80866;
+    color: #E80866;
+    border-radius: 42px;
+    padding: 22px 14px 22px 15px;
+    text-align: center;
+    margin: 20px auto;
+    cursor: pointer;
+    line-height: 1;
+    font-weight: 500;
+    max-width: 177px;
+    display: flex;
+    align-content: center;
+    transition: all 0.3s ease;
+
+    > span {
+      margin-right: 15px;
+    }
+
+    &:hover {
+      background-color: #E80866;
+      color: white;
+    }
+  }
+
+  @media (max-width: 1350px) {
+    max-width: 540px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    &__text {
+      order: 2;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    &__img {
+      position: relative;
+      right: auto;
+      top: auto;
+      max-width: 62px;
+      margin: 0 auto 15px;
+      order: 1;
+    }
+    &__plus {
+      order: 3;
+    }
+  }
+}

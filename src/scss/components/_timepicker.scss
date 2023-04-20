@@ -1,0 +1,162 @@
+.timepicker {
+  position: relative;
+  height: 60px;
+  width: calc(50% - 8px);
+  margin-right: 8px;
+  margin-bottom: 16px;
+
+  @include breakpoint(xsm, max) {
+    width: 100%;
+    max-width: 391px;
+    margin-right: 0;
+  }
+
+  * {
+    font-family: $f-main;
+  }
+
+  &-wrapper {
+    position: absolute;
+    width: 100%;
+    min-height: 60px;
+    left: 0;
+    top: 0;
+    height: fit-content;
+    border: 1px solid #0E1856;
+    background-color: #fff;
+    border-radius: 12px;
+    z-index: 33;
+    overflow: hidden;
+
+    * {
+      user-select: none;
+    }
+
+    .placeholder {
+      padding: 18px 12px 18px;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+
+      * {
+        pointer-events: none;
+      }
+
+      &.open {
+        .arrow {
+          transform: rotate(-180deg);
+          transition: all 0.3s ease;
+        }
+      }
+
+      .text {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 24px;
+        color: #0E1856;
+      }
+
+      .arrow {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 10px;
+        right: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .time {
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 24px;
+        color: #0E1856;
+        display: flex;
+      }
+    }
+  }
+
+  &-dropdown {
+    &-head {
+      display: flex;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+      .hour-column, .minute-column {
+        padding: 10px 15px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: #0E1856;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    &-body {
+      height: 337px;
+      display: flex;
+      padding: 2px;
+
+      @include breakpoint(xsm, max) {
+        height: 250px;
+      }
+
+      > ul:nth-of-type(1) {
+        border-right: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+
+      .hour-column, .minute-column {
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+        scroll-snap-type: y mandatory;
+
+        > li {
+          font-style: normal;
+          font-weight: 300;
+          font-size: 20px;
+          line-height: 24px;
+          padding: 18px;
+          color: #0E1856;
+          height: 60px;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          scroll-snap-align: start;
+
+          &.active {
+            background: linear-gradient(0deg, rgba(14, 24, 86, 0.2), rgba(14, 24, 86, 0.2)), #fff;
+            pointer-events: none;
+          }
+
+          &:hover {
+            background-color: #F5F5F5;
+            transition: all 0.3s ease;
+          }
+        }
+
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+
+        &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.08);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #8e8e8e;
+          outline: 0;
+        }
+      }
+    }
+  }
+}
