@@ -24,6 +24,8 @@ if (!wp_doing_ajax()) {
     <div id="payment" class="woocommerce-checkout-payment">
         <h1 class="u-h2"><?php _e('Payment', THEME_TD); ?></h1>
         <p class="subtitle"><?php _e('Payment Method?', THEME_TD); ?></p>
+        <p class="subtitle no-amex" style="color:var(--varod);"><?php _e('Unfortunately American Express cards are not accepted', THEME_TD); ?></p>
+
 
         <?php if (WC()->cart->needs_payment()) : ?>
             <ul class="wc_payment_methods payment_methods methods">
