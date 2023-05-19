@@ -1,0 +1,16 @@
+body.rtl #partner-title-svg,
+body.rtl #product-title-svg {
+    direction: ltr;
+}
+
+tspan.br {
+    font-size: 0;
+}
+
+text, tspan {
+    text-anchor: middle;
+}
+
+body.rtl tspan {
+    direction: rtl;
+}
