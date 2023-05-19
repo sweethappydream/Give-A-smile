@@ -9,8 +9,7 @@ $selectCelebrations = $fields['select_celebration'];
 
 <div class="steps-list__item step3">
     <div class="customize-step">
-		<!-- Switcher Button-->
-         <a href="#" class="switcher-btn desktop-d"><span class="text"><span
+        <a href="#" class="switcher-btn desktop-d"><span class="text"><span
                         class="text"><?= (isset($fields['switch_button_label']) && $fields['switch_button_label']) ? $fields['switch_button_label'] : __('Switch template', THEME_TD); ?></span>
       <i>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,9 +186,9 @@ $selectCelebrations = $fields['select_celebration'];
                     </i>
                 </a>
                 <div class="template">
-                <div class="text-from-input"></div>
+					<!-- <div class="text-from-input"></div> -->
                     <div class="svg">
-
+						
                     </div>
                 </div>
                 <div id="wrapper-receivers-buttons" class="wrapper-receivers-buttons"></div>
