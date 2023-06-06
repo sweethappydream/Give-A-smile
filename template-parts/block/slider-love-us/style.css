@@ -1,0 +1,63 @@
+.class-headline h2 {
+    font-size: clamp(2.25rem, 2.0509rem + 0.8496vw, 3.75rem);
+    text-transform: uppercase;
+}
+
+.class-headline .biggest {
+    font-size: clamp(3.75rem, 3.1064rem + 2.746vw, 7.5rem);
+}
+
+.class-headline p {
+    font-size: 28px;
+}
+
+/* Styles for the slider */
+.class-slider-quotes {
+    
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+.slider-love-us {
+display: flex;
+flex-direction: row;
+gap: 0;
+max-width: 1680px;
+margin: auto;
+}
+.slider-love-us .swiper-slide {
+    background-color: #F5F7FD;
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    max-height: 191px;
+    height: 100% !important;
+    width: 100% !important;
+    border-radius: 25px;
+    gap:40px;
+  }
+  .slider-love-us .swiper-slide img {
+    height: 69px;
+    width: 69px;
+    object-fit: cover;
+    border-radius: 69px;
+  }
+
+.class-slider-quotes .swiper-nav {
+    position: relative;
+  }
+
+.slider-love-us .swiper-container {
+    max-height: 450px;
+    overflow: hidden;
+  }
+  .class-slider-quotes .swiper-nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.class-slider-quotes .swiper-button-next,
+.class-slider-quotes .swiper-button-prev {
+    margin-left: 10px;
+}

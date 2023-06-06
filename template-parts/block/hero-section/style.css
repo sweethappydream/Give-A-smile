@@ -1,0 +1,369 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: var(--padding);
+	min-height:1000px;
+}
+.hero-section h1 {
+  text-align: center;
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--gap);
+  font-weight: 300;
+  
+}
+.hero-h1{
+font-weight:300;
+text-transform: uppercase;
+}
+.varod-bold{
+font-weight:600;
+color:var(--varod);
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--gap);
+  text-align:center;
+  gap: var(--gap);
+}
+
+.hero-section .button {
+  border-radius: var(--button-radius);
+  font-size: var(--button-font-size);
+  padding: var(--button-padding);
+  width: var(--button-width);
+  font-weight: 500;
+}
+
+.hero-section .buttons .button:first-of-type {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.hero-section .buttons .button:last-of-type {
+  background: white;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.hero-section .two-rows {
+  display: flex;
+  flex-direction: column;
+  margin-block: var(--gap);
+  margin-inline:var(--gap);
+  text-align: center;
+  gap: var(--gap);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hero-section .row1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--gap);
+  
+}
+
+.hero-section .left-column,
+.hero-section .right-column,
+.hero-section .item {
+  border-radius: 25px;
+}
+
+.hero-section .left-column,
+.hero-section .right-column {
+  height: var(--column-height);
+  width: var(--column-width);
+  background: var(--background-color);
+}
+
+.hero-section .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--gap);
+  text-align: center;
+  height: var(--column-height);
+  width: var(--column-width);
+  font-size: clamp(16px, 1.5vw, 20px);
+  
+}
+.hero-section li{
+	position:relative;
+}
+.hero-section .last-row {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  margin-bottom: var(--gap);
+  gap: 30px;
+}
+/** Design Blocks**/
+.item.item-list-with-background h2.title {
+  font-size: clamp(1.125rem, 1.1035rem + 0.0915vw, 1.25rem);
+}
+.image-with-heart {
+	  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  max-width: 167px;
+  background: white;
+	  margin: 0 auto;
+	border-radius:16px;
+}
+.image-with-heart img{
+	height:50px;
+	object-fit:contain;
+	width:108px;
+}
+/**/
+.item-list-with-background.withoverlay {
+  position: relative;
+	color:#D02D5D;
+	background:#F5F7FD;
+}
+.image-with-heart::after {
+  content: "";
+  position: absolute;
+  transform: translateX(90%) translateY(-130%);
+  width: 36.001px;
+  height: 31.501px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36.001' height='31.501' viewBox='0 0 36.001 31.501'%3E%3Cpath id='Icon_awesome-heart' data-name='Icon awesome-heart' d='M32.505,4.4a9.615,9.615,0,0,0-13.12.956L18,6.785,16.615,5.358A9.615,9.615,0,0,0,3.495,4.4,10.1,10.1,0,0,0,2.8,19.02L16.4,33.068a2.2,2.2,0,0,0,3.185,0L33.195,19.02A10.09,10.09,0,0,0,32.505,4.4Z' transform='translate(0.001 -2.248)' fill='%23d02d5d'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.item.item-list-with-background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.item.item-list-with-background-image {
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* List Item Background Image with text area and button lead to*/
+.button-with-image {
+  background: var(--varod);
+  padding: 15px 30px;
+  border-radius: 30px;
+  color: white;
+  font-size: 14px;
+}
+.button-with-image:before{
+  content: url(../../../assets/img/material-card-giftcard.svg);
+    width: 13.95px;
+    height: 13.75px;
+    display: inline-block;
+}
+.item.item-list-with-background-image .description {
+  margin-block: 10px;
+  font-size: 15px;
+}
+.item.item-list-with-background-image .pink-s {
+  color: var(--pink);
+  font-size: 10px;
+}
+.image-contain-shakeheart{
+  height: 57.67px;
+  width: 67.92px;
+  margin:0 auto;
+}
+/** HandShake **/
+.handshake {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+.linkhandshake {
+  color: #D02D5D;
+  font-weight: 600;
+}
+/** Small with headline **/
+.small-text {
+  font-size: clamp(1rem, 0.9571rem + 0.1831vw, 1.25rem);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.headline-big {
+  font-size: clamp(2.5rem, 2.2855rem + 0.9153vw, 3.75rem);
+  color: #E0005B;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 auto;
+}
+.item.smallwithspan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/** Background Image with project of the month */
+.item.item-list-with-background-image.project-month {
+  justify-content: end;
+  display: flex;
+}
+.overlay-project-themonth {
+  display: flex;
+  background: #ffffffdb;
+  border-radius: 35px;
+  padding-inline: 10px;
+  padding-block: 10px;
+  flex-wrap: wrap;
+}
+.p-month-heart {
+  height: 30px;
+  width: 36px;
+  margin-right: 4px;
+}
+.title-button {
+  font-size: 15px;
+  width: fit-content;
+  margin-inline-start: 41px;
+  margin-top: -10px;
+}
+.small-text-month {
+  font-size:12px;
+  margin-inline-start:5px;
+  width: fit-content;
+}
+/** Item with overlay */
+.item.item-list-with-background.within{
+ display: flex;
+ flex-direction: column;
+ gap:5px;
+ justify-content: center;
+}
+li.item.item-list-with-background.within::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 28, 66, 0.6);
+  content: "";
+	border-radius:25px;
+}
+.item.item-list-with-background.within p {
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+  position: relative;
+  margin: 0;
+}
+.title-button-with-icon {
+  position: relative;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+.title-button-with-icon::after{
+  content: url(../../../assets/img/arrow-button.svg);
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  padding:10px;
+  margin-left: 15px;
+  background-color: #707070;
+  border-radius: 35px;
+}
+/** Item Background color, Paragraph Style and button */
+.icon-container {
+  background: white;
+  border-radius: 31px;
+  padding: 5px;
+  height: 41px;
+  width: 41px;
+}
+.title-button-with-svg {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--darkblue);
+  font-weight: 500;
+}
+
+.icon-container {
+  margin-left: 5px; /* Adjust the spacing between text and icon as needed */
+}
+/** Background with Image, Overlay, Taxonomy Area and button **/
+.item.item-list-with-background.within.justify-space {
+  justify-content: space-between;
+}
+.taxonomy-button {
+  color: white;
+  position: relative;
+  display: flex;
+}
+/** Voucher Block**/
+
+.item.item-list-with-background.voucher {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: ;
+  text-align: start;
+  position: relative;
+  overflow: hidden;
+}
+.item.item-list-with-background.voucher:before{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 99.569px; /* Set the width of the SVG */
+  height: 197px; /* Set the height of the SVG */
+  background-image: url("../../../assets/img/voucher-tie.svg"); /* Replace with the path to your SVG */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.rtl .item.item-list-with-background.voucher::before {
+  left: 0;
+  right: unset;
+}
+.voucher-span {
+  font-size: clamp(1.25rem, 1.0998rem + 0.6407vw, 2.125rem);
+  font-weight: 600;
+}
+.voucher-donate {
+  font-size: clamp(0.625rem, 0.5821rem + 0.1831vw, 0.875rem);
+}
+.price-text {
+  font-size: clamp(1.875rem, 1.6605rem + 0.9153vw, 3.125rem);
+  font-weight: 600;
+  color: var(--varod);
+}
+/** Media Queiry 767 **/
+@media(max-width:1025px){
+  .hero-section .row, .hero-section .last-row, .hero-section .buttons{
+      flex-direction:column;
+    }
+    .hero-section .left-column,
+    .hero-section .right-column{
+      margin-block: var(--gap);
+    }
+    .hero-section .row1{
+      flex-direction: column;
+    }
+    .hero-section .two-rows{
+      align-content:center;
+      align-items:center;
+    }
+  }
+  /*Dark Mode*/
+  @media (prefers-color-scheme: dark) {
+    .item.dark_mode {
+      color: white;
+    }
+    .item.dark_mode a{
+      color:white;
+    }
+  }

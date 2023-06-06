@@ -1,0 +1,141 @@
+.counter-block-with-icons .container {
+    background: var(--bgblue);
+    padding-inline: 7.1rem;
+    padding-block: 120px;
+    border-radius: 71px;
+    text-align: center;
+    --bgblue: #F5F7FD;
+    max-width: 1680px;
+    margin: 0 auto;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.counter-block-with-icons{
+        margin:clamp(2vw, 4vw, 5vw);
+}
+.counter-block-with-icons button{
+    width:fit-content;
+    margin:0 auto;
+    border-radius: 47px;
+    padding:10px 20px;
+    background-color: var(--varod);
+}
+.counter-block-with-icons button a{
+    color:var(--bgblue);
+}
+@media screen and (max-width:720px) {
+    .counter-block-with-icons .container {
+        gap: 40px;
+        margin: 5vw;
+        padding-inline: 1.5rem;
+    }
+}
+
+.counter-block-with-icons__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0%;
+}
+.iconcounter{
+    margin-block: 15px;
+    max-height: 81px;
+    width:auto;
+    object-fit: contain;
+}
+@media screen and (max-width:575px) {
+    .counter-block-with-icons__row {
+        margin: 0;
+        gap: 79px;
+    }
+}
+
+.counter-block-with-icons__counter {
+    text-align: center;
+    font-size: clamp(1.25rem, 1.1642rem + 0.3661vw, 1.75rem);
+    width: 33%;
+}
+
+@media screen and (max-width:1024px) {
+    .counter-block-with-icons__counter {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .counter-block-with-icons__counter {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.counter-block-with-icons__number {
+    margin-bottom: 10px;
+    font-size: clamp(4.375rem, 4.1605rem + 0.9153vw, 5.625rem);
+    line-height: 1;
+    color: var(--darkblue);
+    font-weight: 700;
+}
+
+@media screen and (max-width:575px) {
+    .counter-block-with-icons__number {
+        margin-bottom: 5px;
+    }
+}
+
+.counter-block-with-icons__currency {
+    margin-right: 8px;
+    font-size: 24px
+}
+
+@media screen and (max-width:575px) {
+    .counter-block-with-icons__currency {
+        margin-right: 4px;
+        font-size: 12px
+    }
+}
+.rtl .counter-block-with-icons__number {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.inner-gift-link {
+    margin-bottom: 32px;
+    padding: 10px 0;
+    background-color: #f5f5f5;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
+}
+
+.inner-gift-link__link {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.counter-block-with-icons button:before {
+    content: url(../../../assets/img/I-feather-gift.svg);
+    width: 23px;
+    height: 23px;
+    margin-right: 5px;
+    display: inline-flex;
+}
+@media (prefers-color-scheme: dark) {
+.counter-block-with-icons.dark-mode .container {
+    background: #0E1C42;
+    color: var(--bgblue);
+  }
+  .counter-block-with-icons.dark-mode .counter-block-with-icons__number {
+    color: var(--bgblue);
+  }
+  .counter-block-with-icons.dark-mode button{
+    background-color: #65B2A3;
+  }
+}

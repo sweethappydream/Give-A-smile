@@ -1,0 +1,121 @@
+@import '../../../src/scss/globals/variables';
+
+.counter-block {
+  padding: 91px 0;
+
+  @media screen and (max-width: $sm) {
+    padding: 45px 0;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 0 -55px -110px;
+
+    @media screen and (max-width: $sm) {
+      margin: 0 0 -20px -40px;
+    }
+  }
+
+  &__counter {
+    margin: 0 0 55px 110px;
+    text-align: center;
+    font-size: 28px;
+    line-height: lh(33, 28);
+
+    @media screen and (max-width: $lg) {
+      margin: 0 0 30px 70px;
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: $sm) {
+      margin: 0 0 20px 40px;
+      font-size: 14px;
+      line-height: lh(16, 14);
+    }
+  }
+
+  &__number {
+    margin-bottom: 10px;
+    font-size: 56px;
+    line-height: 1;
+    color: $c-primary;
+
+    @media screen and (max-width: $sm) {
+      margin-bottom: 5px;
+      font-size: 28px;
+    }
+  }
+
+  &__currency {
+    margin-right: 8px;
+    font-size: 24px;
+
+    @media screen and (max-width: $sm) {
+      margin-right: 4px;
+      font-size: 12px;
+    }
+  }
+}
+
+.rtl {
+  .counter-block {
+    &__row {
+      margin: 0 -110px -55px 0;
+
+      @media screen and (max-width: $sm) {
+        margin: 0 -40px -20px 0;
+      }
+    }
+
+    &__counter {
+      margin: 0 110px 55px 0;
+
+      @media screen and (max-width: $sm) {
+        margin: 0 40px 20px 0;
+      }
+    }
+
+    &__number {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+}
+
+.inner-gift-link {
+  margin-bottom: 32px;
+  padding: 10px 0;
+  background-color: $c-background;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+      content: url('../../../assets/img/gift.svg');
+      width: 28px;
+      height: 28px;
+      margin-right: 8px;
+    }
+  }
+}
+
+.rtl {
+  .inner-gift-link {
+    &__link {
+      &:before {
+        margin: 0 0 0 8px;
+      }
+    }
+  }
+}
