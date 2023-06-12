@@ -2,6 +2,7 @@
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('smile', get_stylesheet_directory_uri() . '/dist/css/main.min.css', [], THEME_FILES_VERSION);
     wp_enqueue_style('smile_thankyou', get_stylesheet_directory_uri() . '/dist/css/thankyou.css', [], THEME_FILES_VERSION);
+    wp_enqueue_style('svg_greeting', get_stylesheet_directory_uri() . '/dist/css/custom.css', [], THEME_FILES_VERSION);
     wp_enqueue_style('officeguy-og-css', plugins_url() . '/woo-payment-gateway-officeguy/includes/css/front.css');
 
     wp_register_script('smile', get_stylesheet_directory_uri() . '/dist/js/app.min.js', [
@@ -11,7 +12,8 @@ add_action('wp_enqueue_scripts', function () {
 
     wp_enqueue_script('swiper', get_stylesheet_directory_uri() . '/src/js/scripts/swiper-bundle.min.js', [], THEME_FILES_VERSION, true);
 	wp_enqueue_script('swiper-steps', get_stylesheet_directory_uri() . '/src/js/scripts/steps-swiper.js', [], THEME_FILES_VERSION, true);
-	wp_enqueue_script('steps-text', get_stylesheet_directory_uri() . '/src/js/scripts/steps-text.js', [], THEME_FILES_VERSION, true);
+    wp_enqueue_script('steps-fix', get_stylesheet_directory_uri() . '/dist/js/custom.js', [], THEME_FILES_VERSION, true);
+	//wp_enqueue_script('steps-text', get_stylesheet_directory_uri() . '/src/js/scripts/steps-text.js', [], THEME_FILES_VERSION, true);
     wp_enqueue_script('officeguypayments', 'https://www.myofficeguy.com/scripts/payments.js', ['jquery'], false, false);
     wp_enqueue_script('officeguy-front', plugins_url() . "/woo-payment-gateway-officeguy/includes/js/officeguy.js", ['jquery'], false, false);
     wp_enqueue_script('smile');

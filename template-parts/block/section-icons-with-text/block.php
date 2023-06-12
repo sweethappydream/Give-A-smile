@@ -21,9 +21,10 @@ $mode = get_field('mode'); // Assuming 'mode' is the ACF field name
 ?>
 
 <!-- Start Values Section -->
-<section <?= $blockId ? 'id="' . $blockId . '"' : '' ?> class="<?= $slug ?> <?= $blockClass ?: '' ?> <?= $mode ? 'dark-mode' : '' ?>">
+<section <?= $blockId ? 'id="' . $blockId . '"' : '' ?> class="mx <?= $slug ?> <?= $blockClass ?: '' ?> <?= $mode ? 'dark-mode' : '' ?>">
+<div class="container">
     <h2><?= $headline ?></h2>
-    <ul class="<?= $slug . '__list' ?>" style="list-style:none;">
+    <ul class="<?= $slug . '__list' ?>">
         <?php if ($items): ?>
             <?php foreach ($items as $item): ?>
                 <?php
@@ -46,5 +47,6 @@ $mode = get_field('mode'); // Assuming 'mode' is the ACF field name
                 </a>
             </button>
         <?php endif; ?>
+</div>
 </section>
 <!-- End Values section -->

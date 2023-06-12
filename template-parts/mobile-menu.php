@@ -1,4 +1,7 @@
 <?php
+/** 
+ * Mobile Menu
+ */
 $loginLink = $args['loginLink'] ?? null;
 ?>
 

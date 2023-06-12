@@ -21,7 +21,8 @@ $button = get_field('quotes_slider_button');
 $mode = get_field('mode');
 ?>
 <!-- Start Slider Section -->
-<section <?= $blockId ? 'id="' . $blockId . '"' : '' ?> class="<?= $slug ?> <?= $blockClass ?: '' ?> <?= $mode ? 'dark-mode' : '' ?>">
+<section <?= $blockId ? 'id="' . $blockId . '"' : '' ?> class="mx <?= $slug ?> <?= $blockClass ?: '' ?> <?= $mode ? 'dark-mode' : '' ?>">
+<div class="container">
     <h2><?= $headline ?></h2>
     <div class="swiper-container quotes" aria-label="Image Slider" role="region">
         <div class="swiper-wrapper quotes">
@@ -42,10 +43,13 @@ $mode = get_field('mode');
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-        <div class="swiper-nav">
+        <div class="swiper-navig <?= $slug ?> <?= $blockClass ?: '' ?> <?= $mode ? 'dark-mode' : '' ?>">
+
             <div class="swiper-pagination" aria-label="Pagination" role="list"></div>
+            <div class="swiper-buttons" role="navigation">
             <div class="swiper-button-next" aria-label="Next Slide" data-next-slide-message="Next Slide"></div>
             <div class="swiper-button-prev" aria-label="Previous Slide" data-prev-slide-message="Previous Slide"></div>
+            </div>
         </div>
     </div>
     <?php if (is_array($button) && !empty($button)): ?>
@@ -53,5 +57,6 @@ $mode = get_field('mode');
                 <?= $button['title'] ?>
             </a>
     <?php endif; ?>
+    </div>
 </section>
 <!-- End Slider Section -->

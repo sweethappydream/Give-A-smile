@@ -59,11 +59,12 @@ $background_color = get_field('background_color');
               $background_color = get_sub_field('background_color');
               $item_title = get_sub_field('title');
               $image = get_sub_field('image');
+              
               ?>
               <li class="item item-list-with-background withoverlay left-column <?php echo (get_sub_field('dark_mode') ? 'dark_mode' : ''); ?>" style="background-color: <?php echo $background_color; ?>;">
                 <h2 class="title"><?php echo $item_title; ?></h2>
 				  <div class="image-with-heart">
-					<img class="image-contain" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">  
+          <img class="image-contain" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">    
 				  </div>
               </li>
               <?php
@@ -122,7 +123,8 @@ $background_color = get_field('background_color');
                   <div class="overlay-project-themonth">
                   <img class="p-month-heart" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">  
                   <span class="small-text-month"><?php _e('Project of the month:', THEME_TD); ?></span>
-                    <a href="<?php echo $project_of_the_month['url']; ?>" aria-label="<?php echo $project_of_the_month['title']; ?>" class="title-button"><?php echo $project_of_the_month['title']; ?></a>
+                  <span class="small-text-month"><?php _e('Project of the month:', THEME_TD); ?></span>
+                      <a href="<?php echo $project_of_the_month['url']; ?>" aria-label="<?php echo $project_of_the_month['title']; ?>" class="title-button"><?php echo $project_of_the_month['title']; ?></a>
                   </div>
                   </li>
                   <?php

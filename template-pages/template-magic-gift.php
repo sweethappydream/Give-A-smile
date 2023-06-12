@@ -30,9 +30,6 @@ $button_text = get_field('button_text');
                  <?= $title; ?>
               </p>
           <?php endif?>
-<!--        <p class="l-check-giftcard__text">-->
-<!--            Tarshapamo as a wish that will be felt given to the recipient - all Raki and the shimmel will be removed from the street.-->
-<!--        </p>-->
         <form action="" class="l-check-giftcard__form js-check-giftcard">
           <input type="text" placeholder="<?php _e('Enter your Code Coupon here', THEME_TD); ?>">
 

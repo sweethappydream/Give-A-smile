@@ -1,5 +1,5 @@
 /*
-Theme Name: Smile Theme 2023
+Theme Name: Smile Theme Dev
 Author: Arctica
 Version: 2.0
 Text Domain: smile
@@ -12,10 +12,6 @@ Text Domain: smile
 html,body{
 	overflow-x:hidden;
 	background:#fff;
-}
-/*hiding for now the .gifts__counter*/
-.gifts__counter{
-	display:none;
 }
 /*fixing site footer*/
 .site-footer__contact {
@@ -69,7 +65,7 @@ html,body{
   height:160px;
  }
 .product-step1__accordion
-.accordion-item 
+.accordion-item
 .accordion-title p {
   margin-bottom: 0;
   max-width: 315px;
@@ -145,7 +141,7 @@ direction: initial;
 }
 /*currency flags*/
 a[rel="ILS"]:before {
-      background-image: url(/wp-content/themes/smile_deploy-2023/assets/img/il.svg);
+      background-image: url(../../../assets/img/il.svg);
     display: inline-block;
 min-width: 24px;
 min-height: 18px;
@@ -154,7 +150,7 @@ border-radius: 2px;
       content: "";
 }
 a[rel="USD"]:before {
-      background-image: url(/wp-content/themes/smile_deploy-2023/assets/img/us.svg);
+      background-image: url(../../../assets/img/us.svg);
     display: inline-block;
 min-width: 24px;
 min-height: 18px;
@@ -163,7 +159,7 @@ border-radius: 2px;
       content: "";
 }
 a[rel="EUR"]:before {
-      background-image: url(/wp-content/themes/smile_deploy-2023/assets/img/eu.svg);
+      background-image: url(../../../assets/img/eu.svg);
     display: inline-block;
 min-width: 24px;
 min-height: 18px;
@@ -171,15 +167,15 @@ margin: 0 8px 0 0 !important;
 border-radius: 2px;
       content: "";
 }
- 
+
 a.remove {
     text-indent: -9999px;
     border: 0;
 }
- 
+
 /* Add a Fontawesome icon instead */
 /* Learn More in the Following Paragraphs */
- 
+
 a.remove:before {
     font-family: FontAwesome;
     content: "\f1f8";

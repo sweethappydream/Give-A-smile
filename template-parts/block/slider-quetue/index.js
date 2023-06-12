@@ -6,6 +6,7 @@
             quotesSlider.forEach(slider => {
                 const swiper = new Swiper(slider, {
                     // Swiper configuration options
+                    loop:true,
                     effect: "creative",
                     creativeEffect: {
                       prev: {

@@ -1,7 +1,7 @@
 /**
 * Main Css of give a smile
 **/
-:root {
+ :root {
   --swiper-theme-color: #007aff;
   --darkblue:#0e1856;
   --greyfilter:#f5f5f5;
@@ -374,7 +374,7 @@
  */
 
 :where(fieldset) {
-  border: 1px solid #a0a0a0;
+  border: none;
 }
 
 /**
@@ -1462,13 +1462,13 @@ select.custom {
 
 .dropdown {
   background-color: var(--white);
-  border: 1px solid var(--darkblue);
+  border: 1px solid #DBDEEF;
   box-sizing: border-box;
   cursor: pointer;
   display: block;
   min-height: 60px;
   outline: none;
-  padding: 18px 60px 18px 12px;
+  padding: 25px 60px 25px 12px;
   position: relative;
   text-align: left;
   transition: all 0.2s ease-in-out;
@@ -1484,7 +1484,7 @@ select.custom {
     width: 40px;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 18px;
     transition: all 0.125s ease-in-out;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAyMCAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4LjgyNDQgMS4wNzQzNkMxOC4xNzU2IDAuNDI1NTcxIDE3LjEyMzkgMC40MjQ5OTggMTYuNDc0NCAxLjA3MzA4TDEwIDcuNTMzMzNMMy41MjU2NCAxLjA3MzA4QzIuODc2MTQgMC40MjQ5OTkgMS44MjQ0MyAwLjQyNTU3MSAxLjE3NTY0IDEuMDc0MzZDMC41MjYzNTIgMS43MjM2NSAwLjUyNjM1MiAyLjc3NjM1IDEuMTc1NjQgMy40MjU2NEw4LjU4NTc5IDEwLjgzNThDOS4zNjY4NCAxMS42MTY4IDEwLjYzMzIgMTEuNjE2OCAxMS40MTQyIDEwLjgzNThMMTguODI0NCAzLjQyNTY0QzE5LjQ3MzYgMi43NzYzNSAxOS40NzM2IDEuNzIzNjUgMTguODI0NCAxLjA3NDM2WiIgZmlsbD0iIzBFMTg1NiIvPgo8L3N2Zz4K);
     background-repeat: no-repeat;
@@ -4100,17 +4100,8 @@ h1, h2, h3, h4, h5, h6,
   margin: 0 0 20px;
   padding: 0;
   font-weight: 500;
-  font-size: 72px;
+  font-size: calc(1.5532rem + 1.373vw);
   line-height: 1.18056; }
-  @media screen and (max-width: 1024px) {
-    h1, h2, h3, h4, h5, h6,
-    .h1, .h2, .h3, .h4, .h5, .h6 {
-      font-size: 45px; } }
-  @media screen and (max-width: 575px) {
-    h1, h2, h3, h4, h5, h6,
-    .h1, .h2, .h3, .h4, .h5, .h6 {
-      font-size: 30px; } }
-
 h1, .h1 {
   font-weight: 700; }
 
@@ -5372,7 +5363,7 @@ body.rtl .c-social {
      }
       @media screen and (max-width: 768px) {
         .gifts__image img {
-          height: 160px; } }
+          height: 204px !important; } }
     .gifts__image .title {
       position: relative;
       width: 100%;
@@ -5402,17 +5393,22 @@ body.rtl .c-social {
     left: 0;
     z-index: 1;
     display: inline-block;
-    color: var(--varod);
-    background: var(--greyfilter);
-    border-radius: 0px 11px 11px 0px;
+    color: var(--white);
+    background: var(--varod);
     font-weight: 500;
-    padding: 2px 9px; }
+    padding: 7px 18px;
+    margin-inline: 10px;
+    border-radius: 38px; }
+    .rtl .gifts__month {
+      right: 0;
+      left: unset;
+    }
     @media screen and (max-width: 768px) {
       .gifts__month {
-        font-size: .875rem; } }
+        font-size: .75rem; } }
     @media screen and (max-width: 575px) {
       .gifts__month {
-        font-size: .875rem; } }
+        font-size: .675rem; } }
 .gifts__counter {
   margin: 0;
   padding-inline: 10px;
@@ -5442,6 +5438,10 @@ body.rtl .c-social {
   .favorites svg {
     position: relative;
     top: 1px; }
+    .rtl .favorites {
+      right: unset;
+      left: 12px;
+    }
 
 @media screen and (max-width: 575px) {
   .project-month .gifts__image img {
@@ -6402,7 +6402,7 @@ body.rtl .c-social {
       padding: 10px; }
     .steps-list__item .customize-step-form input {
       background-color: #fefefe;
-      border: 1px solid var(--darkblue);
+      border: 1px solid #DBDEEF;
       border-radius: 12px;
       margin-bottom: 0; }
     .steps-list__item .customize-step-form .wrapper-textarea {
@@ -6887,7 +6887,7 @@ margin-bottom:20px;
 @media screen and (min-width: 768px) {
   .product-step1__accordion {
     padding: 17px 10px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 3px 6px #00000029;
     border-radius: 12px; } }
 
 .product-step1__accordion .accordion-item {
@@ -6897,8 +6897,9 @@ margin-bottom:20px;
   .product-step1__accordion .accordion-item .accordion-title {
     position: relative;
     cursor: pointer;
-    padding: 14px 45px 14px 10px;
-    background: #F1F1F1;
+    padding-block: 25px;
+padding-inline: 20px;
+    background: var(--bgblue);
     border-radius: 7px;
     font-weight: 600; }
     .product-step1__accordion .accordion-item .accordion-title p {
@@ -6989,13 +6990,16 @@ margin-bottom:20px;
     margin-bottom: 30px; } }
 
 .product-step1__price-item {
-  box-shadow: 0px 3.5px 3.5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 6px #00000029;
   border-radius: 10.5px;
   margin-bottom: calc(10px + 1vw);
   padding: 10px; }
   @media screen and (max-width: 768px) {
     .product-step1__price-item {
-      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25); } }
+      box-shadow: 0px 2px 5px #00000029; 
+      padding-block: 25px;
+      padding-inline: 20px;
+    } }
   .product-step1__price-item.hidden {
     display: none; }
 
@@ -7064,7 +7068,6 @@ font-size: clamp(1.0625rem, 0.9981rem + 0.2746vw, 1.4375rem);
           width: 90px; } }
     @media screen and (max-width: 768px) {
       .price-item__row .price-description__btn {
-        padding-top: 0;
         display: flex;
         padding-top: 0; } }
     .price-item__row .price-description__btn .btn, .price-item__row .price-description__btn .tab-btn, .price-item__row .price-description__btn input[type=submit], .price-item__row .price-description__btn select[type=submit], .price-item__row .price-description__btn textarea[type=submit] {
@@ -9513,13 +9516,13 @@ html[lang="he-IL"] .woocommerce-account .woocommerce-EditAccountForm .wrap-submi
 
 .span-cat {
   padding: 7px 18px;
-  margin-inline: 10px;
   border-radius: 38px;
   margin-bottom: 10px;
   border: 2px solid #DBDEEF;
   width: fit-content;
-  font-size: clamp(1rem, 0.9668rem + 0.1416vw, 1.25rem);
+  font-size: clamp(14px, 0.8668rem + 0.1416vw, 1.25rem);
 }
+
 .gifts__item:hover .span-cat{
 	background-color:#44B5A3;
 	color:var(--white);
@@ -9537,7 +9540,7 @@ html[lang="he-IL"] .woocommerce-account .woocommerce-EditAccountForm .wrap-submi
 	padding-bottom: 20px;
 }
 .bt.gift-li {
-  min-width: 290px;
+
   padding: 15px 30px;
 }
 .wpml-ls-legacy-dropdown-click .wpml-ls-flag {

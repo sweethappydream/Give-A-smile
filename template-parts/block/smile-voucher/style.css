@@ -1,128 +1,132 @@
 
 .smile-voucher {
-    margin: clamp(2vw, 4vw, 5vw);
-    background-image: url('/wp-content/themes/smile_ios/assets/img/border-lines.svg');
-    background-position: center;
-    background-repeat: no-repeat;
+  margin: clamp(2vw, 4vw, 5vw);
+  background-image: url('/wp-content/themes/smile_ios/assets/img/border-lines.svg');
+  background-position: center;
+  background-repeat: no-repeat;
 }
-  .smile-voucher .container{
-    display: flex;
-    flex-direction: row;
-    padding-inline: 7.1rem;
-    padding-block: 120px;
-    max-width: 1112px;
-    margin: 0 auto;
-    gap: 20px;
-    justify-content: space-around;
-  }
-  @media (max-width: 768px)
+.smile-voucher .container{
+  display: flex;
+  flex-direction: row;
+  padding-inline: 7.1rem;
+  padding-block: 120px;
+  max-width: 1112px;
+  margin: 0 auto;
+  gap: 20px;
+  justify-content: space-around;
+}
+@media (max-width: 768px)
 {
-    .smile-voucher .container{
-        flex-direction: column;
-        padding-inline:4vw;
-        
-    }
-    .charity-name, .smile-voucher-headline .card-gift{
-      width:fit-content;
-    }
-    
-  .smile-voucher-more .center-p{
-      text-align: inherit;
-    }
-    .charity-name{
-      margin:auto;
-    }
-    .custom-svg-shape{
-      display:none;
-    }
+  .smile-voucher .container{
+      flex-direction: column;
+      padding-inline:4vw;
+      
+  }
+  .charity-name, .smile-voucher-headline .card-gift{
+    width:fit-content;
+  }
+  
+.smile-voucher-more .center-p{
+    text-align: inherit;
+  }
+  .charity-name{
+    margin:auto;
+  }
+  .custom-svg-shape{
+    display:none;
+  }
 
 }
 .smile-voucher-more {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
-  }
-  .smile-voucher-headline {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-  }
-  .smile-voucher-div2-inner,
-  .smile-voucher-more-sub{
-    padding: var(--gap);
-    text-align: center;
-    height: var(--column-height);
-    width: var(--column-width);
-    font-size: clamp(16px, 1.5vw, 18px);
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 2;
-    position: relative;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+.smile-voucher-headline {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.smile-voucher-div2-inner,
+.smile-voucher-more-sub{
+  padding: var(--gap);
+  text-align: center;
+  height: var(--column-height);
+  width: var(--column-width);
+  font-size: clamp(16px, 1.5vw, 18px);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+}
 .smile-voucher-more-sub {
-    background-color: #BFF7EE;
-    gap: 20px;
-  }
-  .smile-voucher-div2-inner {
-    background: var(--darkblue);
-  }
-  .smile-voucher h2{
-    font-size: clamp(2.8125rem, 2.6516rem + 0.6865vw, 3.75rem);
-    font-weight: 400;
-    max-width: 900px;
-    text-transform: uppercase;
-  }
-  
-  .span-more {
-    font-size: 18px;
-    color: white;
-  }
-  .pricemore {
-    font-size: 50px;
-    color: var(--pink);
-  }
+  background-color: #BFF7EE;
+  gap: 20px;
+}
+.smile-voucher-div2-inner {
+  background: var(--darkblue);
+}
+.smile-voucher h2{
+  font-size: clamp(2.8125rem, 2.6516rem + 0.6865vw, 3.75rem);
+  font-weight: 400;
+  max-width: 900px;
+  text-transform: uppercase;
+}
+
+.span-more {
+  font-size: 18px;
+  color: white;
+}
+.pricemore {
+  font-size: 50px;
+  color: var(--pink);
+}
 .charity-name,
 .smile-voucher-headline .card-gift {
-    border: 2px solid var(--darkblue);
-    border-radius: 45px;
-    background-color: var(--white);
-    padding: 10px 25px;
-    max-width:295px;
-    color: var(--darkblue);
+  border: 2px solid var(--darkblue);
+  border-radius: 45px;
+  background-color: var(--white);
+  padding: 10px 25px;
+  max-width:318px;
+  color: var(--darkblue);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 .charity-name::after {
-    content: url(../../../assets/img/arrow-down.svg);
-    width: 12px;
-    height: 7px;
-    margin-right: 5px;
-    display: inline-flex;
-    margin-left: 5px;
-  }
-  .smile-voucher-headline .card-gift:before{
-    content: url(../../../assets/img/material-card-giftcard.svg);
-    width: 23.95px;
-    height: 22.75px;
-    display: inline-block;
-  }
-  .center-p {
-    text-align: center;
-    font-size: clamp(16px, 1.5vw, 18px);
-  }
-  /*shape*/
-  .custom-svg-shape {
-    position: absolute;
-    right: -124px;
-    transform: rotate(270deg);
-    top: 130px;
-    height: 250px;
-    z-index: 1;
-  }
-  .smile-voucher-more-sub svg {
-    max-height: 50px;
-    max-width: 49px;
-    display: flex;
-    align-self: end;
-  }
+  content: url(/wp-content/themes/smile_ios/assets/img/arrow-down.svg);
+  width: 12px;
+  height: 7px;
+  margin-right: 5px;
+  display: inline-flex;
+  margin-left: 5px;
+}
+.smile-voucher-headline .card-gift:before{
+  content: url(../../../assets/img/material-card-giftcard.svg);
+  width: 23.95px;
+  height: 22.75px;
+  margin-inline: 10px;
+}
+.center-p {
+  text-align: center;
+  font-size: clamp(16px, 1.5vw, 18px);
+}
+/*shape*/
+.custom-svg-shape {
+  position: absolute;
+  right: -124px;
+  transform: rotate(270deg);
+  top: 130px;
+  height: 250px;
+  z-index: 1;
+}
+.smile-voucher-more-sub svg {
+  max-height: 50px;
+  max-width: 49px;
+  display: flex;
+  align-self: end;
+}

@@ -56,8 +56,8 @@ if (have_rows('counters')):
                         <img class="iconcounter" src="<?= $image_counters['url']; ?>" alt="<?= $image_counters['alt']; ?>">
                         <div class="<?= $slug . '__number' ?>">
                             <?= $sign ?>
-                            <?= $currency ? '<span class="' . $slug . '__currency">' . $currency . '</span>' : '' ?>
                             <span class="function-counter" data-speed="300" data-value="<?= $number ?>">0</span>
+                            <?= $currency ? '<span class="' . $slug . '__currency">' . $currency . '</span>' : '' ?>
                         </div>
                         <?= $text ? '<p class="' . $slug . '__text">' . $text . '</p>' : '' ?>
                     </li>

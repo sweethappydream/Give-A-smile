@@ -141,10 +141,10 @@ color:var(--varod);
 .item.item-list-with-background {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 .item.item-list-with-background-image {
-  background-size: 100%;
+  background-size: cover;
   display: flex;
   flex-direction: column;
 }
@@ -160,6 +160,19 @@ color:var(--varod);
   content: url(../../../assets/img/material-card-giftcard.svg);
     width: 13.95px;
     height: 13.75px;
+    display: inline-block;
+}
+.rtl .button-with-image:before{
+  content: url(../../../assets/img/material-card-giftcard.svg);
+    width: 13.95px;
+    height: 13.75px;
+    display: none;
+}
+.rtl .button-with-image:after{
+  content: url(../../../assets/img/material-card-giftcard.svg);
+    width: 13.95px;
+    height: 13.75px;
+    margin-inline-start:10px;
     display: inline-block;
 }
 .item.item-list-with-background-image .description {
@@ -262,6 +275,9 @@ li.item.item-list-with-background.within::before {
   color: white;
   font-size: 20px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 .title-button-with-icon::after{
   content: url(../../../assets/img/arrow-button.svg);
@@ -269,9 +285,12 @@ li.item.item-list-with-background.within::before {
   height: 35px;
   display: inline-flex;
   padding:10px;
-  margin-left: 15px;
+  margin-inline: 10px;
   background-color: #707070;
   border-radius: 35px;
+}
+.rtl .title-button-with-icon::after{
+  transform: rotate(180deg);
 }
 /** Item Background color, Paragraph Style and button */
 .icon-container {
@@ -280,6 +299,10 @@ li.item.item-list-with-background.within::before {
   padding: 5px;
   height: 41px;
   width: 41px;
+  margin-inline:10px;
+}
+.rtl .icon-container{
+  transform: rotate(180deg);
 }
 .title-button-with-svg {
   position: relative;
@@ -340,6 +363,9 @@ li.item.item-list-with-background.within::before {
   font-size: clamp(1.875rem, 1.6605rem + 0.9153vw, 3.125rem);
   font-weight: 600;
   color: var(--varod);
+}
+.item.item-list-with-background.voucher .title-button-with-icon{
+  color:var(--darkblue);
 }
 /** Media Queiry 767 **/
 @media(max-width:1025px){

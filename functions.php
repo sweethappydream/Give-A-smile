@@ -1,5 +1,5 @@
 <?php
-const THEME_FILES_VERSION = '4.1.8.1.7';
+const THEME_FILES_VERSION = '4.1';
 const THEME_TD = 'smile';
 require __DIR__ . '/vendor/autoload.php';
 require_once get_stylesheet_directory() . '/inc/class-smile-wp-mail.php';
@@ -19,31 +19,17 @@ require_once get_stylesheet_directory() . '/inc/ajax-handlers.php';
 require_once get_stylesheet_directory() . '/inc/favorite.php';
 require_once get_stylesheet_directory() . '/inc/send-message.php';
 
-//remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-
-//add_action( 'woocommerce_review_order_before_submit', 'woocommerce_checkout_coupon_form' );
-function remove_modal_on_load() {
-  wp_add_inline_script( 'jquery', '
-    $(window).on("load", function() {
-      if ($("body.logged-in .l-modal-container.is-active").length) {
-        $(".l-modal-container.is-active").removeClass("is-active");
-      }
-    });
-  ');
-}
-add_action( 'wp_head', 'remove_modal_on_load' );
-
-/* PURPOSE 
+/* PURPOSE
  * Disable comments on ALL post types
  * remove/hide any existing comments
- * from displaying and hide forms. 
+ * from displaying and hide forms.
  */
 
 /* INSTALL
- * Add into your active theme's functions.php file. 
+ * Add into your active theme's functions.php file.
  */
 
-/* 1/  Disable Comments on ALL post types */ 
+/* 1/  Disable Comments on ALL post types *
 function updated_disable_comments_post_types_support() {
    $types = get_post_types();
    foreach ($types as $type) {
@@ -55,21 +41,21 @@ function updated_disable_comments_post_types_support() {
 }
 add_action('admin_init', 'disable_comments_post_types_support');
 
-/* 2. Hide any existing comments on front end */ 
+/* 2. Hide any existing comments on front end *
 function disable_comments_hide_existing_comments($comments) {
    $comments = array();
    return $comments;
 }
 add_filter('comments_array', 'disable_comments_hide_existing_comments', 10, 2);
 
-/* 3. Disable commenting */ 
+/* 3. Disable commenting *
 function disable_comments_status() {
    return false;
 }
 add_filter('comments_open', 'df_disable_comments_status', 20, 2);
 add_filter('pings_open', 'df_disable_comments_status', 20, 2);
 
-/** Add Meta Pixel to head**/
+/** Add Meta Pixel to head**
 function add_facebook_pixel() { ?>
 <!-- Meta Pixel Code -->
 <script>
@@ -88,6 +74,45 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=229537309645423&ev=PageView&noscript=1"
 /></noscript>
     <!-- Meta Pixel Code -->
-<?php } 
+<?php }
 add_action('wp_head', 'add_facebook_pixel');
- 
+/**
+ * Load more endpoint for gift items.
+ */
+add_action('rest_api_init', function () {
+   register_rest_route('smile/v1', '/load-more', array(
+       'methods' => 'POST',
+       'callback' => 'smile_load_more_callback',
+   ));
+});
+
+function smile_load_more_callback($request) {
+   // Retrieve the requested page number
+   $page = $request->get_param('page');
+
+   // Get the current language code
+   $current_lang = apply_filters( 'wpml_current_language', NULL );
+
+   // Use the page number and language to query the additional gift items
+   $args = array(
+       'post_type' => 'product',
+       'posts_per_page' => 3, // Change this value to the desired number of items per page
+       'paged' => $page,
+       'current_lang' => $current_lang, // Add the language code to the query
+   );
+
+   // Use the WP_Query class to retrieve the gift items
+   $loop = new WP_Query($args);
+   $content = '';
+
+   while ($loop->have_posts()) : $loop->the_post();
+       // Render the HTML for each gift item
+       ob_start();
+       get_template_part('template-parts/gifts-item', null, compact('project_of_the_month'));
+       $content .= ob_get_clean();
+   endwhile;
+   wp_reset_query();
+
+   // Return the HTML content
+   return $content;
+}

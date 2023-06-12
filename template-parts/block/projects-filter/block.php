@@ -70,8 +70,7 @@ $blockClass = $block['className'] ?? null;
 <section class="partners__gifts">
     <div class="container">
 			<h2 class="partnersh2"><?php the_field('special_headline_before_projects'); ?></h2>
-        <ul class="row gifts home-gifts">
-
+      <ul class="row gifts home-gifts">
             <?php
             $project_of_the_month = get_field('project_of_the_month', 'option');
             $project_of_the_month_ids = [];
@@ -84,90 +83,71 @@ $blockClass = $block['className'] ?? null;
             $args = array(
                 'post_type' => 'product',
                 'posts_per_page' => 12,
-				 'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-				
+                'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
                 // 'post__in' => $project_of_the_month_ids
             );
 
             $loop = new WP_Query($args);
+            $counter = 0;
             while ($loop->have_posts()) : $loop->the_post();
                 $product_type = get_field('product_type', get_the_ID());
                 //if ($product_type === 'simple' || empty($product_type)):
-                    get_template_part('template-parts/gifts-item', null, compact('project_of_the_month'));
+                get_template_part('template-parts/gifts-item', null, compact('project_of_the_month'));
                 //endif;
+
+                $counter++;
             endwhile;
             wp_reset_query();
             ?>
         </ul>
-		<?php if ($loop->max_num_pages > 1) : ?>
-  <button id="true_loadmore-post" title="more on the latest <?= $args['post_type'] ?>" class="btnsharp load-more">
-    <span><?= __('View More', THEME_TD); ?></span>
-    <span ariahidden="true">+</span>
-  </button>
-<?php else: ?>
-  <button id="true_loadmore-post" title="more on the latest <?= $args['post_type'] ?>" class="btnsharp load-more" style="display: none;">
-    <span><?= __('View More', THEME_TD); ?></span>
-    <span ariahidden="true">+</span>
-  </button>
-<?php endif; ?>
-
-
+        <button class="load-more-btn">Load More</button>
     </div>
 </section>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var page = 2;
-  var postType = 'product';
-  var maxPages = 5;
-  var postsPerPage = 3;
-  var loadedPosts = []; // Track the loaded posts
+const s = window.jQuery;
 
-  function loadMorePosts() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '<?php echo admin_url("admin-ajax.php"); ?>');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        document.querySelector('.load-more').classList.remove('loading');
-        document.querySelector('.home-gifts').insertAdjacentHTML('beforeend', xhr.response);
-        page++;
+class LoadMore {
+  constructor() {
+    this.loadMoreBtn = s('.load-more-btn');
+    this.giftsContainer = s('.partners__gifts .gifts');
+    this.init();
+  }
 
-        if (page > maxPages) {
-          document.querySelector('.load-more').style.display = 'none';
+  init() {
+    const self = this;
+    self.loadMoreBtn.on('click', function (e) {
+      e.preventDefault();
+      self.loadMoreContent();
+    });
+  }
+
+  loadMoreContent() {
+    const self = this;
+    self.loadMoreBtn.addClass('loading');
+    const currentPage = self.loadMoreBtn.data('page') || 5;
+    s.post(
+      "/wp-json/smile/v1/load-more",
+      {
+        page: currentPage,
+        auth: themeVars.logIn,
+				user_id: themeVars.userID,
+      },
+      function (response) {
+        self.giftsContainer.append(response);
+        self.loadMoreBtn.data('page', currentPage + 1);
+        self.loadMoreBtn.removeClass('loading');
+
+        if (response === '') {
+          self.loadMoreBtn.hide();
         }
-
-        var response = JSON.parse(xhr.responseText);
-        loadedPosts = loadedPosts.concat(response.loadedPosts); // Update the loadedPosts array
-      } else {
-        console.log(xhr.status);
       }
-    };
-    xhr.onerror = function () {
-      console.log('Request failed');
-    };
-
-    var exclude = loadedPosts.join(',');
-    var data = new URLSearchParams();
-    data.append('action', 'load_more_posts');
-    data.append('page', page);
-    data.append('post_type', postType);
-    data.append('posts_per_page', postsPerPage);
-    data.append('exclude', exclude);
-
-    xhr.send(data);
-
-    document.querySelector('.load-more').classList.add('loading');
+    );
   }
+}
 
-  document.querySelector('.load-more').addEventListener('click', function (e) {
-    e.preventDefault();
-    loadMorePosts();
-  });
-
-  if (page > maxPages) {
-    document.querySelector('.load-more').style.display = 'none';
-  }
+// Initialize the load more class
+s(document).ready(function () {
+  new LoadMore();
 });
-
 
 </script>

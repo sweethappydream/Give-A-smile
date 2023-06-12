@@ -28,7 +28,6 @@
 @media screen and (max-width:720px) {
     .counter-block-with-icons .container {
         gap: 40px;
-        margin: 5vw;
         padding-inline: 1.5rem;
     }
 }
@@ -37,8 +36,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0%;
+gap:40px;
+    list-style: none;
+}
+@media screen and (max-width:1025px) {
+    .counter-block-with-icons__row {
+        flex-direction: column;
+    }
 }
 .iconcounter{
     margin-block: 15px;
@@ -48,14 +52,13 @@
 }
 @media screen and (max-width:575px) {
     .counter-block-with-icons__row {
-        margin: 0;
-        gap: 79px;
+        gap: 10px;
     }
 }
 
 .counter-block-with-icons__counter {
     text-align: center;
-    font-size: clamp(1.25rem, 1.1642rem + 0.3661vw, 1.75rem);
+    font-size: clamp(1.2rem, 1.1642rem + 0.3661vw, 1.75rem);
     width: 33%;
 }
 
@@ -74,10 +77,13 @@
 
 .counter-block-with-icons__number {
     margin-bottom: 10px;
-    font-size: clamp(4.375rem, 4.1605rem + 0.9153vw, 5.625rem);
+    font-size: clamp(3rem, 3.1605rem + 0.9153vw, 5rem);
     line-height: 1;
     color: var(--darkblue);
     font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 @media screen and (max-width:575px) {
@@ -88,13 +94,11 @@
 
 .counter-block-with-icons__currency {
     margin-right: 8px;
-    font-size: 24px
 }
 
 @media screen and (max-width:575px) {
     .counter-block-with-icons__currency {
         margin-right: 4px;
-        font-size: 12px
     }
 }
 .rtl .counter-block-with-icons__number {
@@ -124,8 +128,11 @@
     content: url(../../../assets/img/I-feather-gift.svg);
     width: 23px;
     height: 23px;
-    margin-right: 5px;
-    display: inline-flex;
+    margin-inline: 10px;
+    
+}
+.counter-block-with-icons button{
+    display: flex;
 }
 @media (prefers-color-scheme: dark) {
 .counter-block-with-icons.dark-mode .container {

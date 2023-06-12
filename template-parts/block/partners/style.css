@@ -130,6 +130,9 @@
     margin: 0 auto;
     display: block;
 }
+
+
+
 .load-more-here.show {
     display: inline-block; /* Show the button when required */
 }

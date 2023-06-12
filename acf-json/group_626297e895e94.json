@@ -3,6 +3,27 @@
     "title": "Block: Questions",
     "fields": [
         {
+            "key": "field_6485bf04d3f89",
+            "label": "Headline",
+            "name": "h2",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6262987479743",
             "label": "List",
             "name": "list",
@@ -90,5 +111,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1679467280
+    "modified": 1686486803
 }

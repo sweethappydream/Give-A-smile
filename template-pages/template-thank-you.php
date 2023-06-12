@@ -12,7 +12,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'get_type') {
     $ret = array();
     $ret['type_send'] = get_post_meta($order_id, 'type_send', true);
     $sender_data = get_post_meta($order_id, 'sender_data', true);
-    $ret['couponCode'] = $sender_data['couponCode'];
+    $ret['couponCode'] = (isset($sender_data['couponCode'])) ? $sender_data['couponCode'] : '';
     echo json_encode ($ret);
     exit;
 }
@@ -24,7 +24,7 @@ function om ($output, $subject="Debug") {
 	$headers = "Content-Type: text/html; charset=UTF-8\r\n";
 
 	$txt  = '<pre style="direction:ltr;">'. print_r ($output, true) . '</pre>';
-	$send = wp_mail('itaios052@gmail.com', $subject,  $txt, $headers);
+	
 
 
 }
@@ -34,7 +34,7 @@ $order_id = $_GET['order_id'];
 $type_send = get_post_meta($order_id, 'type_send', true);
 $sender_data = get_post_meta($order_id, 'sender_data', true);
 $couponCode = $sender_data['couponCode'];
-//om (get_post_meta($order_id), 'Order');
+om (get_post_meta($order_id), 'Order');
 
 ?>
 
@@ -86,27 +86,33 @@ $couponCode = $sender_data['couponCode'];
     });
 
  
-    $(document).ready(function ($) {
+    $(document).ready(function ($) {     
 
         var type_send = '<?php echo $type_send; ?>';
         var couponCode = '<?php echo $couponCode; ?>';
         type_send = '';
+        couponCode = '';
         
         function check_type() {
+            console.log ('type_send ' + type_send);
 
             if (type_send != '') {
         
-                if (type_send == 'For Me' || couponCode != '') $(".thank_you_cards_box").remove();
+                if (type_send == 'For Me' || couponCode != '') {
+                    console.log (type_send + '] [' + couponCode);
+                    $(".thank_you_cards_box").remove();
+                }
             } else {
                 $.ajax({
                     type: 'get',
                     url: "?action=get_type&oid=<?php echo $order_id;?>",
                     cache: false,
                     success: function (response) {
-                        console.log (response);
+                        console.log ('response ' + response);
                         json = JSON.parse(response);
                         type_send = json.type_send;
-                        couponCode = json,couponCode;
+                        couponCode = json.couponCode;
+                        console.log (type_send + '] + [' + couponCode);
                         check_type();
                     }
                 });

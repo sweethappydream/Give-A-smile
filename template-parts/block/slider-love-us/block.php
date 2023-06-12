@@ -23,6 +23,7 @@ $mode = get_field('mode');
 ?>
 <!-- Start Slider Section -->
 <section <?= $blockId ? 'id="' . $blockId . '"' : '' ?> class="<?= $slug ?> <?= $blockClass ?: '' ?> <?= $mode ? 'dark-mode' : '' ?>">
+
     <div class="class-headline">
         <h2><?= $headline ?></h2>
         <span class="biggest"><?= $spanText ?></span>
@@ -30,7 +31,7 @@ $mode = get_field('mode');
     </div>
     <div class="class-slider-quotes">
         <div class="swiper-container" aria-label="Image Slider" role="region">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper quote">
                 <?php if ($items): ?>
                     <?php foreach ($items as $item): ?>
                         <?php
@@ -39,7 +40,7 @@ $mode = get_field('mode');
                         ?>
                         <div class="swiper-slide">
                             <img src="<?= $image['url'] ?>" alt="<?= $image['alt'] ?>">
-                            <p><?= $text ?></p>
+                            <p class="swiper-love-us"><?= $text ?></p>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>

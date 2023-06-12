@@ -15,11 +15,11 @@ defined('ABSPATH') || exit;
         }
         ?>
         <?php if (isset($arr_wish) && is_array($arr_wish) && $arr_wish): ?>
-            <div class="row">
+            <ul class="row gifts home-gifts">
                 <?php foreach ($arr_wish as $item): ?>
                     <?php get_template_part('template-parts/gifts-item', null, ['id' => $item]) ?>
                 <?php endforeach; ?>
-            </div>
+                </ul>
         <?php elseif (!is_user_logged_in()): ?>
             <div class="no-wishlist no-log">
                 <p><?php _e('You are not logged in', THEME_TD); ?></p>
