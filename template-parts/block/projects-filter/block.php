@@ -124,13 +124,32 @@ class LoadMore {
   loadMoreContent() {
     const self = this;
     self.loadMoreBtn.addClass('loading');
+    const filters = s('#projects-filter li a.selected');
+    const giftIds = s('.partners__gifts .gifts__image');
+
     const currentPage = self.loadMoreBtn.data('page') || 5;
+    let termIds = [];
+    const excludes = [];
+
+    if( giftIds?.length ) {
+      giftIds.each( function(index, gift) {
+        excludes.push(s(gift).attr('data-id'));
+      } );
+    }
+    if( filters.length ) {
+      filters.each( function(index, el) {
+        termIds.push(s(el).attr('data-term-id'));
+      } );
+    }
     s.post(
       "/wp-json/smile/v1/load-more",
       {
         page: currentPage,
         auth: themeVars.logIn,
 				user_id: themeVars.userID,
+        excludes: excludes,
+        term_ids: termIds,
+        lang: "<?php echo ICL_LANGUAGE_CODE; ?>",
       },
       function (response) {
         self.giftsContainer.append(response);

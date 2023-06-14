@@ -89,9 +89,11 @@ add_action('rest_api_init', function () {
 function smile_load_more_callback($request) {
    // Retrieve the requested page number
    $page = $request->get_param('page');
+   $excludes = $request->get_param('excludes');
+   $term_ids = $request->get_param('term_ids');
+   $current_lang = $request->get_param('lang'); // Get the current language code 
+   $term_ids = isset( $term_ids ) ? $term_ids : [];
 
-   // Get the current language code
-   $current_lang = apply_filters( 'wpml_current_language', NULL );
 
    // Use the page number and language to query the additional gift items
    $args = array(
@@ -99,7 +101,17 @@ function smile_load_more_callback($request) {
        'posts_per_page' => 3, // Change this value to the desired number of items per page
        'paged' => $page,
        'current_lang' => $current_lang, // Add the language code to the query
+      //  'post__not_in' => is_array( $excludes ) ? $excludes : [], // exclude already loaded products
    );
+
+   // Temporary disable, debugging issues with filter query 
+   // if( is_array( $term_ids ) && ! empty( $term_ids[0] ) ) {
+   //    $args['tax_query'] = array(
+   //       'taxonomy' => 'product_tag',
+   //       'field' => 'id',
+   //       'terms' => $term_ids,
+   //    );
+   // }
 
    // Use the WP_Query class to retrieve the gift items
    $loop = new WP_Query($args);

@@ -4,11 +4,14 @@
  */
 defined('ABSPATH') || exit;
 
+$current_lang = $_COOKIE['wp-wpml_current_language'];
+
 if (isset($args['id']) && $args['id']) {
     $product = wc_get_product($args['id']);
 } else {
     global $product;
 }
+
 
 
 if (isset($args['auth']) && $args['auth']) {
@@ -21,7 +24,7 @@ if (isset($args['user_id']) && $args['user_id']) {
 } else {
     $user_id = get_current_user_id();
 }
-
+$lang_prod_id = apply_filters( 'wpml_object_id', $product->get_id(), 'product', false, $current_lang );
 
 // Ensure visibility.
 if (empty($product) || !$product->is_visible()) {
@@ -35,7 +38,7 @@ if (isset($args['project_of_the_month']) && $args['project_of_the_month']) {
 }
 $is_product_of_month = in_array($product->get_id(), $project_of_the_month);
 // Get product categories
-        $categories = wp_get_post_terms($product->get_id(), 'partners');
+        $categories = wp_get_post_terms($lang_prod_id, 'partners');
 
 ?>
 <?php if ($is_product_of_month) : ?>
@@ -45,7 +48,7 @@ $is_product_of_month = in_array($product->get_id(), $project_of_the_month);
         <?php endif; ?>
 
         <div class="gifts__image" data-id="<?= $product->get_id(); ?>">
-            <a href="<?= $product->get_permalink(); ?><?=(isset($_GET['gift']) && is_can_to_use_coupon($_GET['gift'])) ? '?gift='.filter_var($_GET['gift']) : '';?>" tabindex="-1">
+            <a href="<?= get_the_permalink( $lang_prod_id ); ?><?=(isset($_GET['gift']) && is_can_to_use_coupon($_GET['gift'])) ? '?gift='.filter_var($_GET['gift']) : '';?>" tabindex="-1">
                 <?php if ($project_of_the_month) : ?>
                     <?php if ($is_product_of_month) : ?>
                         <div class="gifts__month">
@@ -84,8 +87,8 @@ if($partner_logo) {
   ?>
 				
                    <h3 class="title">
-  					<a href="<?= $product->get_permalink(); ?><?=(isset($_GET['gift']) && is_can_to_use_coupon($_GET['gift'])) ? '?gift='.filter_var($_GET['gift']) : '';?>">
-    				<?php echo mb_strimwidth($product->get_title(), 0, 65, "..."); ?> 
+  					<a  data-lang="<?php echo $current_lang; ?>" href="<?= get_the_permalink( $lang_prod_id ); ?><?=(isset($_GET['gift']) && is_can_to_use_coupon($_GET['gift'])) ? '?gift='.filter_var($_GET['gift']) : '';?>">
+    				<?php echo mb_strimwidth(get_the_title( $lang_prod_id ), 0, 65, "..."); ?> 
   					</a>
 					</h3>
 
