@@ -104,14 +104,14 @@ function smile_load_more_callback($request) {
       //  'post__not_in' => is_array( $excludes ) ? $excludes : [], // exclude already loaded products
    );
 
-   // Temporary disable, debugging issues with filter query 
-   // if( is_array( $term_ids ) && ! empty( $term_ids[0] ) ) {
-   //    $args['tax_query'] = array(
-   //       'taxonomy' => 'product_tag',
-   //       'field' => 'id',
-   //       'terms' => $term_ids,
-   //    );
-   // }
+   // Get products by filters
+   if( is_array( $term_ids ) && ! empty( $term_ids[0] ) ) {
+      $args['tax_query'] = array( array(
+         'taxonomy' => 'product_tag',
+         'field' => 'term_id',
+         'terms' => $term_ids,
+      ) );
+   }
 
    // Use the WP_Query class to retrieve the gift items
    $loop = new WP_Query($args);
