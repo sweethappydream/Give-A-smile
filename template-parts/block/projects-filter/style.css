@@ -380,11 +380,58 @@
    .load-more-btn{
     display:block;
     padding: 10px 30px;
-margin-inline: 10px;
-border-radius: 38px;
-border: 2px solid #DBDEEF;
-width: fit-content;
-font-size: clamp(1rem, 0.9668rem + 0.1416vw, 1.25rem);
-background: var(--white);
-margin: 0 auto;
+    margin-inline: 10px;
+    border-radius: 38px;
+    border: 2px solid #DBDEEF;
+    width: fit-content;
+    font-size: clamp(1rem, 0.9668rem + 0.1416vw, 1.25rem);
+    background: var(--white);
+    margin: 0 auto;
+    position: relative;
    }
+   .load-more-btn .spinner {
+    display: none;
+   }
+   .load-more-btn.loading {
+    pointer-events: none;
+   }
+   .load-more-btn.loading .spinner {
+    width: 16px;
+    height: 16px;
+    border: solid 2px var(--darkblue);
+    border-radius: 50%;
+    border-right-color: #0e185661;
+    border-bottom-color: #0e185645;
+    -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name: spinner-load;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    transition: all 0.5s ease-in;
+    animation-name: spinner-load;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 16px;
+   }
+@keyframes spinner-load {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
+
+ @-webkit-keyframes spinner-load {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}

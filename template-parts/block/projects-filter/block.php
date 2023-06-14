@@ -84,6 +84,12 @@ $blockClass = $block['className'] ?? null;
                 'post_type' => 'product',
                 'posts_per_page' => 12,
                 'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+                'tax_query'   => array( array(
+                    'taxonomy'  => 'product_visibility',
+                    'terms'     => array( 'exclude-from-catalog' ),
+                    'field'     => 'name',
+                    'operator'  => 'NOT IN',
+                ) )
                 // 'post__in' => $project_of_the_month_ids
             );
 
@@ -100,7 +106,10 @@ $blockClass = $block['className'] ?? null;
             wp_reset_query();
             ?>
         </ul>
-        <button class="load-more-btn">Load More</button>
+        <button class="load-more-btn">
+          <span class="spinner"></span>
+          Load More
+        </button>
     </div>
 </section>
 <script>
@@ -152,11 +161,14 @@ class LoadMore {
         lang: "<?php echo ICL_LANGUAGE_CODE; ?>",
       },
       function (response) {
-        self.giftsContainer.append(response);
+        const content = response?.content;
+        const has_load_more = response?.has_load_more;
+
+        self.giftsContainer.append(content);
         self.loadMoreBtn.data('page', currentPage + 1);
         self.loadMoreBtn.removeClass('loading');
 
-        if (response === '') {
+        if (response === '' || ! has_load_more) {
           self.loadMoreBtn.hide();
         }
       }

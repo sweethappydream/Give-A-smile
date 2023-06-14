@@ -25,7 +25,6 @@ if (isset($args['user_id']) && $args['user_id']) {
     $user_id = get_current_user_id();
 }
 $lang_prod_id = apply_filters( 'wpml_object_id', $product->get_id(), 'product', false, $current_lang );
-
 // Ensure visibility.
 if (empty($product) || !$product->is_visible()) {
     return;
@@ -70,14 +69,14 @@ $is_product_of_month = in_array($product->get_id(), $project_of_the_month);
 
                 <?= $product->get_image() ?>
                  </a>
-			<?php
+			<!-- <?php
 $partner_logo = get_field('partner_logo', 'partners_' . $taxonomy->term_id);
 if($partner_logo) {
-?>
-    <img src="<?= $partner_logo['url']; ?>" alt="<?= $partner_logo['alt']; ?>" />
-<?php
+?> -->
+    <!-- <img src="<?= $partner_logo['url']; ?>" alt="<?= $partner_logo['alt']; ?>" /> -->
+<!-- <?php
 }
-?>
+?> -->
 				
   <?php
   foreach ($categories as $category) {

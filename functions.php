@@ -99,9 +99,15 @@ function smile_load_more_callback($request) {
    $args = array(
        'post_type' => 'product',
        'posts_per_page' => 3, // Change this value to the desired number of items per page
-       'paged' => $page,
+         //  'paged' => $page,
+        'tax_query'   => [ [
+            'taxonomy'  => 'product_visibility',
+            'terms'     => [ 'exclude-from-catalog' ],
+            'field'     => 'name',
+            'operator'  => 'NOT IN',
+        ] ],
        'current_lang' => $current_lang, // Add the language code to the query
-      //  'post__not_in' => is_array( $excludes ) ? $excludes : [], // exclude already loaded products
+       'post__not_in' => is_array( $excludes ) ? $excludes : [], // use paged args OR post__not_in (exclude already loaded products)
    );
 
    // Get products by filters
@@ -120,11 +126,16 @@ function smile_load_more_callback($request) {
    while ($loop->have_posts()) : $loop->the_post();
        // Render the HTML for each gift item
        ob_start();
-       get_template_part('template-parts/gifts-item', null, compact('project_of_the_month'));
+       get_template_part('template-parts/gifts-item', null );
        $content .= ob_get_clean();
    endwhile;
    wp_reset_query();
 
    // Return the HTML content
-   return $content;
+   return wp_send_json([
+      'has_load_more' => $loop->found_posts > $loop->post_count,
+      'content' => $content
+   ]);
+
+   // return $content;
 }

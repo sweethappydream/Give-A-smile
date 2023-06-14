@@ -102,16 +102,23 @@ function get_gifts_by_terms(WP_REST_Request $request): WP_REST_Response
         if ($project_of_the_month) {
             $args = array(
                 'post_type' => 'product',
-                'posts_per_page' => -1,
+                'posts_per_page' => 12,
                 'post__in' => $project_of_the_month_ids,
                 'tax_query' => [
+                    'relation' => 'AND',
                     [
                         'taxonomy' => 'product_tag',
                         'field' => 'term_id',
                         'terms' => $terms,
                         'operator' => 'IN',
+                    ],
+                    [
+                        'taxonomy'  => 'product_visibility',
+                        'terms'     => [ 'exclude-from-catalog' ],
+                        'field'     => 'name',
+                        'operator'  => 'NOT IN',
                     ]
-                ]
+                ],
             );
 
             $loop = new WP_Query($args);
@@ -124,17 +131,28 @@ function get_gifts_by_terms(WP_REST_Request $request): WP_REST_Response
             endwhile;
         }
 
+        $rest_post_per_page = 12;
 //        Other products
+        if ( $has_posts ) {
+            $rest_post_per_page = $rest_post_per_page - $loop->post_count;
+        }
         $args = array(
             'post_type' => 'product',
-            'posts_per_page' => -1,
+            'posts_per_page' => $rest_post_per_page,
             'post__not_in' => $project_of_the_month_ids,
             'tax_query' => [
+                'relation' => 'AND',
                 [
                     'taxonomy' => 'product_tag',
                     'field' => 'term_id',
                     'terms' => $terms,
                     'operator' => 'IN',
+                ],
+                [
+                    'taxonomy'  => 'product_visibility',
+                    'terms'     => [ 'exclude-from-catalog' ],
+                    'field'     => 'name',
+                    'operator'  => 'NOT IN',
                 ]
             ]
         );
@@ -155,7 +173,12 @@ function get_gifts_by_terms(WP_REST_Request $request): WP_REST_Response
         if (!$has_posts) {
             $html = '<div class="col col-12"><span>'.__('Sorry no results were found',THEME_TD).'</span></div>';
         }
-        return new WP_REST_Response($html);
+
+        return wp_send_json([
+            'has_load_more' => $loop->found_posts > $loop->post_count,
+            'content' => $html
+        ]);
+        // return new WP_REST_Response($html);
     }
 
     return all_gifts($auth, $user_id, $current_lang);
@@ -179,8 +202,14 @@ function all_gifts($auth = false, $user_id = null, $current_lang = null)
     if ($project_of_the_month) {
         $args = array(
             'post_type' => 'product',
-            'posts_per_page' => -1,
-            'post__in' => $project_of_the_month_ids
+            'posts_per_page' => 12,
+            'post__in' => $project_of_the_month_ids,
+            'tax_query'   => [ [
+                'taxonomy'  => 'product_visibility',
+                'terms'     => [ 'exclude-from-catalog' ],
+                'field'     => 'name',
+                'operator'  => 'NOT IN',
+            ] ],
         );
 
         $loop = new WP_Query($args);
@@ -189,10 +218,22 @@ function all_gifts($auth = false, $user_id = null, $current_lang = null)
         endwhile;
     }
 
+    $rest_post_per_page = 12;
+    // Other products
+    if ( $loop->have_posts() ) {
+        $rest_post_per_page = $rest_post_per_page - $loop->post_count;
+    }
+
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => -1,
-        'post__not_in' => $project_of_the_month_ids
+        'posts_per_page' => $rest_post_per_page,
+        'post__not_in' => $project_of_the_month_ids,
+        'tax_query'   => [ [
+            'taxonomy'  => 'product_visibility',
+            'terms'     => [ 'exclude-from-catalog' ],
+            'field'     => 'name',
+            'operator'  => 'NOT IN',
+        ] ],
     );
 
     $loop = new WP_Query($args);
@@ -202,7 +243,11 @@ function all_gifts($auth = false, $user_id = null, $current_lang = null)
 
     wp_reset_query();
     $html = ob_get_clean();
-    return new WP_REST_Response($html);
+    return wp_send_json([
+        'has_load_more' => $loop->found_posts > $loop->post_count,
+        'content' => $html
+    ]);
+    // return new WP_REST_Response($html);
 }
 
 function get_all_gifts(): WP_REST_Response
@@ -236,7 +281,13 @@ function gift_filter(WP_REST_Request $request): WP_REST_Response
             'post_type' => 'product',
             'posts_per_page' => -1,
             's' => $query,
-            'post__in' => $project_of_the_month_ids
+            'post__in' => $project_of_the_month_ids,
+            'tax_query'   => [ [
+                'taxonomy'  => 'product_visibility',
+                'terms'     => [ 'exclude-from-catalog' ],
+                'field'     => 'name',
+                'operator'  => 'NOT IN',
+            ] ],
         );
 
         $loop = new WP_Query($args);
@@ -253,7 +304,13 @@ function gift_filter(WP_REST_Request $request): WP_REST_Response
         'post_type' => 'product',
         'posts_per_page' => -1,
         's' => $query,
-        'post__not_in' => $project_of_the_month_ids
+        'post__not_in' => $project_of_the_month_ids,
+        'tax_query'   => [ [
+            'taxonomy'  => 'product_visibility',
+            'terms'     => [ 'exclude-from-catalog' ],
+            'field'     => 'name',
+            'operator'  => 'NOT IN',
+        ] ],
     );
 
     $loop = new WP_Query($args);
