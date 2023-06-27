@@ -2,6 +2,7 @@
   "name": "name",
   "version": "0.1.0",
   "description": "description",
+  
   "scripts": {
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production",
